@@ -18,7 +18,7 @@ function LoginPage(){
 
     return(
         <div>
-            <form onSubmit = {handleSubmit} >
+            <form onSubmit ={ (e)=>{handleSubmit(e)}} >
                 <InputField
                     name="Username"
                     type ="text"
