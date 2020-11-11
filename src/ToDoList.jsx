@@ -1,4 +1,4 @@
-import React,{useState} from "react"
+import React,{useState} from "react";
 import InputField from "./InputField";
 
 //array need not be sorted here
@@ -6,25 +6,26 @@ const ToDoList = (props) =>{
     const [newToDo,setNewToDo] = useState({});
 
     const handleDelete = (e,deltitle) =>{
+     // send title to server to delete item
 
     }
-
+    // render list of todo items
     const listItems = props.tdlist.map((tdl) =>
         <div>
             <p className={todotitle}>{tdl.title}</p>
             <p className={todocontent} >{tdl.content}</p>
             <button type = "button" onClick ={(e) =>{handleDelete(e,tdl.title)} }/>
         </div>);
+    // for  adding new todo item
 
     const addItem = () =>{
         const handleChange = (name,value) =>{
             return(setNewToDo(prev =>{return({ ...prev , [name]: value})}))
         }
-        // Handle submit later;;;
+     // Submit for Add Item
         const handleSubmit = (evt) => {
             evt.preventDefault();
-            alert(`Submitting Data ${newAnnounce}`);
-            console.log(newAnnounce);
+            // Handle submit later;;;
         }
 
 
@@ -39,14 +40,14 @@ const ToDoList = (props) =>{
                             placeholder= "Announcement Message"
                             onChange = {handleChange} />
                 <button type = "submit" value = "Submit" >
-                    Post Announcement
+                    Add
                 </button>
             </form>
         </div>
     }
 
 
-
+    // elements returned from ToDo component
     return(
         <div>
             {(addItem)}
