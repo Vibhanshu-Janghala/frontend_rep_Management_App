@@ -7,7 +7,8 @@ const Workflow = (props) => {
     //cards will render cards for a particular list
     const cards = (i) =>{
         for (let j =0;j<workflowList[i].length;j++){
-           return <div key={[i,j]}>
+           //add onClick to each card for popup
+            return <div key={[i,j]}>
                {workflowList[i][j].title};
                {workflowList[i][j].description}
            </div>

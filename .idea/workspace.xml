@@ -20,15 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58d1dffa-e899-4be7-aa14-f49cb9ab28eb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Chat.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Workflow.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SidePane.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/SidePane.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ToDoList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ToDoList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Chat.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chat.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Workflow.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Workflow.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../public/favicon.ico" beforeDir="false" />
@@ -88,6 +86,8 @@
       <workItem from="1604113851574" duration="18051000" />
       <workItem from="1604889300226" duration="7622000" />
       <workItem from="1605039793360" duration="8250000" />
+      <workItem from="1605142858084" duration="18000" />
+      <workItem from="1605227238900" duration="571000" />
     </task>
     <servers />
   </component>

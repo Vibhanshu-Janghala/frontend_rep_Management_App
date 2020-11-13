@@ -5,7 +5,7 @@ const Chat = (props)=>{
         const [currentChat,setCurrentChat]= useState("");
 
         const handleChat = (e,name)=>{
-
+        // switch between chat windows
         }
 
 
@@ -18,9 +18,12 @@ const Chat = (props)=>{
         )
 
 
-
     }
+    // render previous chat
+    const chatWindow = ()=>{}
 
+    //render chat input and send button
+    const chatInput = ()=>{}
     return(<div>
         {chatList}
         {chatWindow}
