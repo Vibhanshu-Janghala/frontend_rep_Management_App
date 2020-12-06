@@ -9,14 +9,18 @@ const ToDoList = (props) =>{
      // send title to server to delete item
 
     }
-    // render list of todo items
-    const listItems = props.tdlist.map((tdl) =>
-        <div>
-            <p className={todotitle}>{tdl.title}</p>
-            <p className={todocontent} >{tdl.content}</p>
-            <button type = "button" onClick ={(e) =>{handleDelete(e,tdl.title)} }/>
-        </div>);
-    // for  adding new todo item
+    // render list of toDoItems
+    //check the delete key
+    const listItems = ()=>{
+
+        props.todoList.map((tdl) =>
+            <div key={tdl.title}>
+                <p className={todotitle}>{tdl.title}</p>
+                <p className={todocontent} >{tdl.content}</p>
+                <button type = "button" onClick ={(e) =>{handleDelete(e,tdl.title)} }/>
+            </div>);
+    }
+    // for  adding new ToDoItem
 
     const addItem = () =>{
         const handleChange = (name,value) =>{
@@ -47,7 +51,7 @@ const ToDoList = (props) =>{
     }
 
 
-    // elements returned from ToDo component
+    // elements returned from ToDoComponent
     return(
         <div>
             {(addItem)}

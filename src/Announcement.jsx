@@ -5,12 +5,13 @@ import InputField from "./InputField";
 const Announcement = (props) =>{
     const [newAnnounce,setNewAnnounce] = useState({});
     const listItems = props.announce.map((a) =>
-                    <div>
-                        <p className={announceTitle}>{a.title}</p>
-                        <p className={{announceMessage}} >{a.message}</p>
+                    <div key={a.title}>
+                        <p >{a.title}</p>
+                        <p >{a.message}</p>
                     </div>);
 
     const addItem = () =>{
+
         const handleChange = (name,value) =>{
             return(setNewAnnounce(prev =>{return({ ...prev , [name]: value})}))
         }
@@ -22,7 +23,7 @@ const Announcement = (props) =>{
         }
 
 
-         return <div>
+        return <div>
            <form onSubmit ={ (e)=>{handleSubmit(e)}} >
            <InputField name="Title"
                        type ="text"
@@ -38,12 +39,12 @@ const Announcement = (props) =>{
            </form>
        </div>
     }
-
+    //re render when listItems change
 
 
     return(
         <div>
-            {(props.lvl === 1)?(addItem):null}
+            {(props.level === 1)?(addItem):null}
             {listItems}
         </div>
         )

@@ -1,12 +1,12 @@
 import React , { useState } from "react";
 
-//import cssfile
+//import css file
 
 const InputField = (props) => {
 
     const [value,setValue] = useState("");
     const handleChange = (event)=> {
-        setValue (event.target.value)
+        setValue(event.target.value)
         props.onChange(event.target.name,event.target.value)
     }
     return(

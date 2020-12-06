@@ -1,35 +1,60 @@
 import React,{useState} from "react";
+import ChatRooms from "./ChatRooms";
+import ChatWindow from "./ChatWindow";
+import UsersOnline from "./UsersOnline";
+import InputField from "./InputField";
+
 const Chat = (props)=>{
 
-    const chatList = (props.cList) =>{
-        const [currentChat,setCurrentChat]= useState("");
+    let socket=props.sockt;
+    const [chatRoom,setChatRoom]= useState("");
+    const handleRoom = (value) =>(setChatRoom(value));
+    const [currentChat,setCurrentChat]= useState({});
+    const [onlineUsers,setOnlineUsers] = useState([])
 
-        const handleChat = (e,name)=>{
-        // switch between chat windows
-        }
+        socket.on("updateOnline",(users)=>{
+            setOnlineUsers(users);
+        })
+
+        socket.on("prevChat",(chat)=>{
+            setChatRoom(chat[0].title);
+            chat.forEach((item)=>{
+                setCurrentChat(prevState => {
+                    return {...prevState,[item.title]:item.content}
+                })
+            })
+        })
+        // receive new messages and update chat
+        socket.on("newMessage",(data)=>{
+            setCurrentChat(prevState => {
+                let updatedArray = [...prevState[data.title],data.message]
+                return {prevState,[data.title]:updatedArray}
+            })
+        })
+
+        socket.emit("getPrevChat");
+
+        socket.emit("message",(data)=>{
+
+        })
 
 
-        return (<div >
-                {props.cList.forEach(name =>
-                {return(<div key={name}>
-                    <button  name={name}  type={"button"} onClick = {(e) =>{handleChat(e,name)}} />
-                </div>)})}
-            </div>
-        )
+    return(
+        <>
+            <ChatRooms
+                room={Object.keys(currentChat)}
+                onChange = {handleRoom}
+            />
+            <ChatWindow
+                chatTitle={chatRoom}
+                chatContent={currentChat[chatRoom]}
+            />
+            < MessageInput />
+            <UsersOnline list={onlineUsers} />
 
-
-    }
-    // render previous chat
-    const chatWindow = ()=>{}
-
-    //render chat input and send button
-    const chatInput = ()=>{}
-    return(<div>
-        {chatList}
-        {chatWindow}
-        {chatInput}
-        </div>
+        </>
     )
+
 }
 
 

@@ -1,16 +1,45 @@
-import React,{useState} from "React";
+import React,{useState} from "react";
 import InputField from "./InputField";
 
 const Workflow = (props) => {
-    const [workflowList,setNewWorkflowList] = useState(props.ttodo);
+
+    // WORKFLOW HANDLING
+
+    // listen for getWorkflow
+    socket.on("currentWorkflow", (value) => {
+        //handle here
+    })
+    socket.on("updateCard",(value)=>{
+
+    })
+    socket.on("deleteCard",(value)=>{
+
+    })
+    socket.on("createList",(value)=>{
+
+    })
+    //get last updated workflow
+    socket.emit("getWorkflow")
+
+    socket.emit("updateWorkflow",
+        null)
+    socket.emit("createNewList",()=>{
+
+    })
+    socket.emit("deleteWorkflow",(value)=>{
+
+    })
+
+    //workflowList is array
+    const [workflowList,setNewWorkflowList] = useState();
 
     //cards will render cards for a particular list
     const cards = (i) =>{
-        for (let j =0;j<workflowList[i].length;j++){
+        for (let j =0;j<workflowList[i].content.length;j++){
            //add onClick to each card for popup
             return <div key={[i,j]}>
-               {workflowList[i][j].title};
-               {workflowList[i][j].description}
+               {workflowList[i].content[j].title};
+               {workflowList[i].content[j].description}
            </div>
         }
 
@@ -21,6 +50,7 @@ const Workflow = (props) => {
         for(let i =0;i<workflowList.length;i++){
             return(
                 <div key={i}>
+                    <h1>{workflowList[i]}</h1>
                     {cards(i)}
                 </div>
             )
