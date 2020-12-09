@@ -20,23 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58d1dffa-e899-4be7-aa14-f49cb9ab28eb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ChatRooms.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ChatWindow.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MessageInput.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UsersOnline.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main_controller.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Card_Checkbox.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/WorkflowCard.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Announcement.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Announcement.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Chat.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chat.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dashboard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InputField.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/InputField.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SidePane.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/NavPane.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ToDoList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ToDoList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Workflow.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Workflow.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" />
@@ -111,7 +101,7 @@
       <workItem from="1606909569210" duration="7185000" />
       <workItem from="1606947463374" duration="348000" />
       <workItem from="1606988916581" duration="22840000" />
-      <workItem from="1607255366971" duration="10459000" />
+      <workItem from="1607255366971" duration="46406000" />
     </task>
     <servers />
   </component>
@@ -155,9 +145,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="174" y="0" width="1362" height="824" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1604166918581" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1607110634397">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1607506614761">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1607110634397" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1607506614761" />
   </component>
 </project>
