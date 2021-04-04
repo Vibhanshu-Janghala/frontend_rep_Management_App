@@ -4,7 +4,7 @@ const ChatWindow = (props)=>{
 
     const renderMessages = () => {
         let messageDiv = props.chatContent.forEach((item) => {
-            if (item.senderId === userId) {
+            if (item.senderId === props.userName) {
                 return <div className="iSent"><span>{item.sender}</span>
                     <span>{item.message}</span>
                 </div>

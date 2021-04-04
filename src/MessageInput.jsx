@@ -1,31 +1,33 @@
 import React,{useState} from "react";
+import InputField from "./InputField";
 
 
 // INCOMPLETE COMPONENT
 // INCOMPLETE COMPONENT
 // INCOMPLETE COMPONENT
-const MessageInput = ()=>{
-    const [message,setMessage]= useState("")
-   const handleSubmit =()=>{
-        //emit event using SUBMIT
-       console.log("Message is :-" + message)
-   }
-   const handleChange = (e)=>{
-       setMessage(e.target.value)
+const MessageInput = (props)=>{
+   const [message,setMessage]= useState("")
+
+    const handleSubmit = ()=>{
+       props.onSubmit(message);
+       setMessage(null);
+    }
+
+    const handleChange = (name,value)=>{
+       setMessage(value)
    }
     return(
         <div>
-            <form onSubmit={(handleSubmit())}>
-                <input type="text"
-                       placeholder="Type a message"
-                       name="message"
-                       onChange={(e)=>{handleChange(e)}}
+            <InputField
+                name={"message"}
+                placeholder={"Type here..."}
+                onChange={handleChange}
+            />
 
-                />
-                <button type="submit">
-                    Send
-                </button>
-            </form>
+            <button type="button" onClick={handleSubmit}>
+                Send
+            </button>
+
 
         </div>
     )

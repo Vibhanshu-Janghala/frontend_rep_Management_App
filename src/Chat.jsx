@@ -2,14 +2,14 @@ import React,{useState} from "react";
 import ChatRooms from "./ChatRooms";
 import ChatWindow from "./ChatWindow";
 import UsersOnline from "./UsersOnline";
-import InputField from "./InputField";
+import MessageInput from "./MessageInput";
 
 const Chat = (props)=>{
 
     let socket=props.sockt;
     const [chatRoom,setChatRoom]= useState("");
     const handleRoom = (value) =>(setChatRoom(value));
-    const [currentChat,setCurrentChat]= useState({});
+    const [currentChat,setCurrentChat]= useState([]);
     const [onlineUsers,setOnlineUsers] = useState([])
 
         socket.on("updateOnline",(users)=>{
@@ -17,39 +17,43 @@ const Chat = (props)=>{
         })
 
         socket.on("prevChat",(chat)=>{
-            setChatRoom(chat[0].title);
-            chat.forEach((item)=>{
-                setCurrentChat(prevState => {
-                    return {...prevState,[item.title]:item.content}
-                })
-            })
+                    setChatRoom(chat[0].title);
+                    setCurrentChat(chat);
+
         })
         // receive new messages and update chat
         socket.on("newMessage",(data)=>{
-            setCurrentChat(prevState => {
-                let updatedArray = [...prevState[data.title],data.message]
-                return {prevState,[data.title]:updatedArray}
+            let roomIndex = currentChat.indexOf(data.room);
+            let updatedRoom = [...currentChat[roomIndex].content,{"sender":data.sender,"message":data.message}];
+            setCurrentChat((prev)=>{
+                prev.splice(roomIndex,1,updatedRoom);
+                return prev;
             })
         })
 
         socket.emit("getPrevChat");
 
-        socket.emit("message",(data)=>{
+    const handleMessageSubmit = (newMessage)=>{
+        let data = {"room":chatRoom,"sender":["FILL HERE"],"message":newMessage};
+       // THINK HOW TO UPDATE CHAT VIA SENDER OR RECEIVER
+        socket.emit("newMessage",data)
 
-        })
-
+    }
 
     return(
         <>
             <ChatRooms
-                room={Object.keys(currentChat)}
+                rooms={Object.keys(currentChat)}
                 onChange = {handleRoom}
             />
             <ChatWindow
                 chatTitle={chatRoom}
                 chatContent={currentChat[chatRoom]}
+                userName={null}
             />
-            < MessageInput />
+            < MessageInput
+                onSubmit ={handleMessageSubmit}
+            />
             <UsersOnline list={onlineUsers} />
 
         </>

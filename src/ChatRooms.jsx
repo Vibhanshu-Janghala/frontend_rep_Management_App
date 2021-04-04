@@ -6,7 +6,7 @@ const ChatRooms = (props )=>{
 
     const  setItem = (e)=>(props.onChange(e.target.name))
 
-    const list = props.room.forEach((item)=>{
+    const list = props.rooms.forEach((item)=>{
         return <buttom type="button" name={item} onClick={(e)=>{setItem(e)}}>
             {item}
         </buttom>

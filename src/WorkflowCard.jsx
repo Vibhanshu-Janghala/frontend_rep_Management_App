@@ -7,9 +7,9 @@ const WorkflowCard = (props)=> {
     const cardList = props.cardList;
     const handleClick = (e)=>{
         if(e!=null) {
-        return props.handleCardClick(e.target.getAttribute("data-parent"), e.target.id);
+        return props.handleCardClick(e.target.getAttribute("data-parent"), e.target.id,false);
         }
-        return props.handleCardClick(null,null);
+        return props.handleCardClick(null,null,true);
     }
 
     //cards will render cards for a particular list

@@ -12,11 +12,12 @@ const InputField = (props) => {
     return(
         <div>
             <label>
-                {props.name}
+                {props.label}
             </label >
             < input
-                name = {props.name}
-                type = {props.type}
+                readOnly= {props.readOnly?props.readOnly:false}
+                name = {props.name ? props.name :null}
+                type = {props.type ? props.type : "text"}
                 onChange = {(event) => handleChange(event)}
                 value = {props.value ? props.value : value}
                 placeholder = {props.placeholder}
