@@ -2,7 +2,20 @@ import React,{useState} from "react"
 import InputField from "./InputField";
 
 //array is assumed as sorted here
-const Announcement = (props) =>{
+const Announcement = () =>{
+    async function fetchAnnouncement() {
+        let response = await fetch("/api/announcement",
+            {
+                method: "GET",
+                header: {accept: "application/json"},
+                credentials: "same-origin",
+                
+            });
+        let jsResponse = await response.json();
+        setProfileData(() => jsResponse);
+        setIsLoading(false);
+
+    }
     const [newAnnounce,setNewAnnounce] = useState({});
     const listItems = props.announce.map((a) =>
                     <div key={a.title}>
