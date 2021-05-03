@@ -2,9 +2,6 @@ import React,{useState} from "react";
 import InputField from "./InputField";
 
 
-// INCOMPLETE COMPONENT
-// INCOMPLETE COMPONENT
-// INCOMPLETE COMPONENT
 const MessageInput = (props)=>{
    const [message,setMessage]= useState("")
 
@@ -14,7 +11,7 @@ const MessageInput = (props)=>{
     }
 
     const handleChange = (name,value)=>{
-       setMessage(value)
+       setMessage(value);
    }
     return(
         <div>

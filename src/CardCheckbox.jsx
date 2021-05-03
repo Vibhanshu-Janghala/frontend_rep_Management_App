@@ -6,46 +6,44 @@ const CardCheckbox = (props)=>{
     const [tempList,setTempList]= useState(props.checkList)
     useEffect(()=>{
         props.onChange("progressList",tempList)
-
-        },  // eslint-disable-next-line react-hooks/exhaustive-deps
-        [tempList])
+        },
+        [tempList,props])
 
     const checkListHandler = (e)=>{
         const itemName = e.target.name;
         const isChecked = e.target.checked;
-        for(let i=0;i<tempList.length;i++){
-            if(tempList[i].content === itemName){
-               setTempList((prev)=>{
-                   prev.splice(i,1,{"content":itemName,"checked":!isChecked})
-                   return prev;
-               })
-            }
+        const index = e.target.getAttribute("index-custom");
+        if(tempList[index].content === itemName) {
+            setTempList((prev) => {
+                prev.splice(index, 1, {"content": itemName, "checked": !isChecked})
+                return prev;
+            });
         }
-
     }
     const handleCheckListDelete = (e)=>{
        const itemName = e.target.name;
-       for(let i=0;i<tempList.length;i++){
-           if(tempList[i].content === itemName){
-               setTempList((prev) =>{
-                  prev.splice(i,1);
-                  return prev;
-               })
-           }
+       let index = e.target.getAttribute("index-custom");
+
+       if(tempList[index].content === itemName){
+           setTempList((prev) =>{
+               prev.splice(index,1);
+               return prev;
+           })
        }
     }
-    const renderList = tempList.map((item)=>{
+    const renderList = tempList.forEach((item,index)=>{
         return(
             <div>
                 <input type="checkbox"
                        id={(item.content).substr(0,10)}
                        name={item.content}
+                       index-custom = {index}
                        checked={item.checked} disabled={props.edit}/>
                 <label htmlFor={(item.content).substr(0,10)}
                     onClick={(e)=>{checkListHandler(e)}}>
                     {item.content}
                 </label>
-                {props.edit?<button type="button" name={item.content}
+                {props.edit?<button type="button" index-custom={index} name={item.content}
                          onClick={(e) => {
                              handleCheckListDelete(e)
                          }}>
@@ -65,11 +63,12 @@ const CardCheckbox = (props)=>{
    <div>
      {renderList}
        {props.edit?
-           <div><InputField name="addCheckItem" onChange={{handleAddItem}}/>
-            <button type="button" name="inputButton"
-                onClick={handleAddSubmit}>
-            Add Icon
-            </button>
+           <div>
+               <InputField name="addCheckItem" onChange={{handleAddItem}}/>
+                <button type="button" name="inputButton"
+                    onClick={handleAddSubmit}>
+                        Add Icon
+                </button>
            </div>
            :null}
    </div>

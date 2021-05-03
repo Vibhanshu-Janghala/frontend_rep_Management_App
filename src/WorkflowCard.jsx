@@ -3,31 +3,37 @@ import React from "react";
 // INDIVIDUAL CARD HANDLING
 
 const WorkflowCard = (props)=> {
-    // cardList ={ listName, [cards] }
+    // cardList ={ listName,content: [cards] }
     const cardList = props.cardList;
-    const handleClick = (e)=>{
-        if(e!=null) {
-        return props.handleCardClick(e.target.getAttribute("data-parent"), e.target.id,false);
-        }
-        return props.handleCardClick(null,null,true);
+    const handleClick = (e,newCard)=>{
+        return props.handleCardClick(e.target.getAttribute("data-parent")
+                    ,e.target.id,newCard,
+            [props.listIndex,e.target.getAttribute("index-card-custom")]);
     }
 
     //cards will render cards for a particular list
     const cards = () => {
 
-        cardList.content.map((item)=>{
-            return( (<div key={item.title} id={item.title}
-                          data-parent={cardList.title} onClick={(e)=>handleClick(e)}>
+        (cardList.content).forEach((item,index)=>{
+            return(
+                <div key={item.title} id={item.title}
+                     data-parent={cardList.listName}
+                     index-card-custom={index}
+                     onClick={(e)=>handleClick(e,false)}>
                     {item.title}
-                    </div>)
-            )
-        })
+                    <div>{"Managed By: "+item.managedBy}</div>
+                    <div>{"Priority: "+item.priority}</div>
+                </div>
+            );
+        });
     }
 
     return(
         <div>
             <button type="button"
-                    onClick={handleClick(null)}>
+                    id={null}
+                    data-parent = {cardList.listName}
+                    onClick={(e)=>handleClick(e,true)}>
                 Add card
             </button>
             {cards}

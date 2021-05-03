@@ -1,10 +1,18 @@
 import React from "react"
-const NavPane = (props) =>{
-
-    // props.user has name and level
+import {useProfile} from "./ProfileContext";
+import {Link} from "react-router-dom";
+const NavPane = () =>{
+    let {profileData}= useProfile();
     return(
         <>
-            <div>Render User Name and level</div>
+            <div>
+                <h1>
+                    {profileData.name}
+                </h1>
+                <h1>
+                    Level {profileData.level} Account
+                </h1>
+            </div>
             <nav>
                 <Link to="/">Announcements</Link>
                 <Link to="/todolist">ToDo List</Link>

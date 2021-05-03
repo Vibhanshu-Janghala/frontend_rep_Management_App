@@ -1,24 +1,23 @@
-import React,{useState} from "react";
-//Login page css
-import InputField from './InputField'
-import { Redirect,Link } from 'react-router-dom';
+import {useState} from "react";
 import {useProfile} from "./ProfileContext";
+import InputField from "./InputField";
+import {Link, Redirect} from "react-router-dom";
 
-function LoginPage(){
+
+
+const SignUp = ()=>{
     const {setProfileData} = useProfile();
     const [data,setData] = useState({});
 
     const handleChange = (name,value) =>{
         return(setData(prev =>{return({ ...prev , [name]: value})}))
     }
-    console.log(data)
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e)=>{
         e.preventDefault();
-        alert(`Submitting Data ${data}`)
         console.log(data)
 
-        let response = await fetch("/api/login",  {
+        let response = await fetch("/api/createAccount",  {
             method: "POST",
             header: {accept: "application/json"},
             credentials: "same-origin",
@@ -26,20 +25,17 @@ function LoginPage(){
         });
         let jsResponse = await response.json();
         setProfileData(() => jsResponse);
-
-
-        //if login successful
         if(response.status === 200){
-            return  <Redirect to={"/dashboard"} />;
+           return <Redirect to={"/"} />
         }
         else{
-            console.log("Error occurred while Logging In")
+            console.log("Error occurred while Sign Up")
         }
+
     }
 
-    return(
-        <div>
-            <form onSubmit ={ (e)=>handleSubmit(e)} >
+    return (<div>
+        <form onSubmit ={ (e)=>handleSubmit(e)} >
                 <InputField
                     name="name"
                     type ="text"
@@ -47,19 +43,28 @@ function LoginPage(){
                     onChange = {handleChange}
                 />
                 <InputField
+                    name="email"
+                    type ="email"
+                    placeholder= "Email"
+                    onChange = {handleChange}
+                />
+                <InputField
+                    name="level"
+                    type ="number"
+                    placeholder= "Access Level"
+                    onChange = {handleChange}/>
+                <InputField
                     name="Password"
                     type ="password"
                     placeholder= "Password"
                     onChange = {handleChange}
                 />
                 <button type = "submit" value = "Submit" >
-                    Sign In
+                    Sign Up
                 </button>
-                <Link to={"/signup"}>Sign Up!</Link>
+                <Link to={"/login"}>Log In</Link>
             </form>
-
         </div>
-
-    )
+        )
 }
-export default LoginPage;
+export default SignUp;

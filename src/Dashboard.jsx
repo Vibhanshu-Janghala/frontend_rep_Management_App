@@ -1,5 +1,6 @@
-import React,{useState} from "react";
+import React from "react";
 import NavPane from "./NavPane";
+import Announcement from "./Announcement";
 import ToDoList from "./ToDoList";
 import Workflow from "./Workflow";
 import Chat from "./Chat";
@@ -8,19 +9,27 @@ import {
     Switch,
     useRouteMatch
 } from 'react-router-dom';
-import Announcement from "./Announcement";
 
 import { io } from 'socket.io-client';
+import {useProfile} from "./ProfileContext";
 
-
-// props has user.name user.level and authToken
     const Dashboard = ()=>{
+        const {profileData} = useProfile();
         let match = useRouteMatch();
-        const socket = io('https://server-domain.com', options);
+        const socket = io("http://localhost:8000",
+                { transports:["websocket"],
+                    reconnectionAttempts:5,
+                    auth :{
+                        "token": JSON.stringify(profileData)
+                     }
+                });
 
-        io.on("connection",(socket)=>{
-            console.log(socket +"CONNECTED")
-        })
+        socket.on("connect", () => {
+            console.log(socket.connected);
+        });
+        socket.on("connect_error", () => {
+           console.log("SOCKET CONNECTION ERROR")
+        });
 
         return(
         <>
