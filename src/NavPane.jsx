@@ -9,15 +9,12 @@ const NavPane = () =>{
                 <h1>
                     {profileData.name}
                 </h1>
-                <h1>
-                    Level {profileData.level} Account
-                </h1>
             </div>
             <nav>
-                <Link to="/">Announcements</Link>
-                <Link to="/todolist">ToDo List</Link>
-                <Link to="/workflow">Workflow</Link>
-                <Link to="/chat">Chat</Link>
+                <Link to={`/dashboard`}>Announcements</Link>
+                <Link to={`/dashboard/todolist`}>ToDo List</Link>
+                <Link to={`/dashboard/workflow`}>Workflow</Link>
+                <Link to={`/dashboard/chat`}>Chat</Link>
             </nav>
         </>
     )

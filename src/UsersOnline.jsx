@@ -1,15 +1,12 @@
-import React from "react";
-
-const UsersOnline = (props)=>{
-    //usersList is collection of div containing individual user
-    const usersList = props.list.forEach((user) => {
-
+const UsersOnline = (props) => {
+    // props.list = [{socketId,username},...]
+    const usersList = props.list.map((obj) => {
         return <div className="onlineUser">
-            {user}
-            </div>
+            {obj.name}
+        </div>
     })
 
-    return(
+    return (
         <div>
             {usersList}
         </div>

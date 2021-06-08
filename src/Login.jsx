@@ -1,36 +1,48 @@
-import React,{useState} from "react";
+import React, {useEffect, useState} from "react";
 //Login page css
 import InputField from './InputField'
-import { Redirect,Link } from 'react-router-dom';
+import {Link, useHistory, useRouteMatch} from 'react-router-dom';
 import {useProfile} from "./ProfileContext";
 
 function LoginPage(){
-    const {setProfileData} = useProfile();
+    let history = useHistory();
+    console.log(useRouteMatch());
+    const {profileData,setProfileData} = useProfile();
     const [data,setData] = useState({});
+
+    // when profileData is fetched and useState has updated useEffect will trigger
+    useEffect(()=>{
+        if(profileData.name != null){
+            history.push("/dashboard");
+        }
+    },[profileData]);
 
     const handleChange = (name,value) =>{
         return(setData(prev =>{return({ ...prev , [name]: value})}))
     }
-    console.log(data)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        alert(`Submitting Data ${data}`)
         console.log(data)
 
-        let response = await fetch("/api/login",  {
+        let response = await fetch("http://localhost:8080/api/login",  {
             method: "POST",
-            header: {accept: "application/json"},
-            credentials: "same-origin",
-            body: JSON.stringify(data)
+            headers:{
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            credentials: "include",
+            body: JSON.stringify(data),
+            cache: 'no-cache',
+            referrerPolicy: 'no-referrer',
+            mode: "cors"
         });
-        let jsResponse = await response.json();
-        setProfileData(() => jsResponse);
-
 
         //if login successful
         if(response.status === 200){
-            return  <Redirect to={"/dashboard"} />;
+            let jsResponse = await response.json();
+            console.log(jsResponse);
+            setProfileData(()=>jsResponse);
         }
         else{
             console.log("Error occurred while Logging In")
@@ -47,16 +59,17 @@ function LoginPage(){
                     onChange = {handleChange}
                 />
                 <InputField
-                    name="Password"
+                    name="password"
                     type ="password"
                     placeholder= "Password"
                     onChange = {handleChange}
                 />
                 <button type = "submit" value = "Submit" >
-                    Sign In
+                    Log In
                 </button>
-                <Link to={"/signup"}>Sign Up!</Link>
+
             </form>
+            <Link to={"/signup"}>Sign Up!</Link>
 
         </div>
 

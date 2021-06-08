@@ -1,32 +1,33 @@
 import React,{useState} from "react";
-import InputField from "./InputField";
-
 
 const MessageInput = (props)=>{
-   const [message,setMessage]= useState("")
+   const [message,setMessage]= useState("");
+   console.log("working")
 
-    const handleSubmit = ()=>{
+    const handleSubmit = (e)=>{
+       e.preventDefault();
        props.onSubmit(message);
-       setMessage(null);
+       setMessage("");
     }
 
-    const handleChange = (name,value)=>{
-       setMessage(value);
+    const handleChange = (e)=>{
+       setMessage(e.target.value);
    }
     return(
-        <div>
-            <InputField
-                name={"message"}
-                placeholder={"Type here..."}
+        <form onSubmit={(e)=>handleSubmit(e)}>
+            <input
+                name="message"
+                placeholder="Message..."
+                value={message}
                 onChange={handleChange}
             />
 
-            <button type="button" onClick={handleSubmit}>
+            <button type="submit" value="Submit" >
                 Send
             </button>
 
 
-        </div>
-    )
+        </form>
+    );
 }
 export default MessageInput;

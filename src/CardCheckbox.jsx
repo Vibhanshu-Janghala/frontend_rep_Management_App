@@ -1,78 +1,78 @@
-import React,{useState,useEffect} from "react";
-import InputField from "./InputField";
+import {useState} from "react";
 
-//tempList format =>[ {content:content,checked:true/false} ]
-const CardCheckbox = (props)=>{
-    const [tempList,setTempList]= useState(props.checkList)
-    useEffect(()=>{
-        props.onChange("progressList",tempList)
-        },
-        [tempList,props])
+//tempList format =>[ {"content":content,"isChecked":true/false} ]
+const CardCheckbox = (props) => {
+    const tempList = props.checkList;
 
-    const checkListHandler = (e)=>{
-        const itemName = e.target.name;
-        const isChecked = e.target.checked;
+    const handleListChange = (newList) => {
+        props.onChange({"target": {"name": "progressList", "value": newList}});
+    }
+
+    const checkListHandler = (e) => {
+        const itemName = e.target.getAttribute("data-name");
         const index = e.target.getAttribute("index-custom");
-        if(tempList[index].content === itemName) {
-            setTempList((prev) => {
-                prev.splice(index, 1, {"content": itemName, "checked": !isChecked})
-                return prev;
-            });
+        const tempCheck = tempList[index].isChecked;
+        if (tempList[index].content === itemName) {
+            let cloneArr = [...tempList];
+            cloneArr.splice(index, 1, {"content": itemName, "isChecked": !tempCheck});
+            handleListChange(cloneArr);
         }
     }
-    const handleCheckListDelete = (e)=>{
-       const itemName = e.target.name;
-       let index = e.target.getAttribute("index-custom");
-
-       if(tempList[index].content === itemName){
-           setTempList((prev) =>{
-               prev.splice(index,1);
-               return prev;
-           })
-       }
+    const handleCheckListDelete = (e) => {
+        const itemName = e.target.getAttribute("data-name");
+        let index = e.target.getAttribute("index-custom");
+        if (tempList[index].content === itemName) {
+            let cloneArr = [...tempList];
+            cloneArr.splice(index, 1);
+            handleListChange(cloneArr);
+        }
     }
-    const renderList = tempList.forEach((item,index)=>{
-        return(
-            <div>
+    const renderList = tempList.map((item, index) => {
+        return (
+            <div key={item.content}>
                 <input type="checkbox"
-                       id={(item.content).substr(0,10)}
                        name={item.content}
-                       index-custom = {index}
-                       checked={item.checked} disabled={props.edit}/>
-                <label htmlFor={(item.content).substr(0,10)}
-                    onClick={(e)=>{checkListHandler(e)}}>
+                       index-custom={index}
+                       data-name={item.content}
+                       checked={item.isChecked} disabled={!props.edit}
+                       onChange={(e) => {
+                           checkListHandler(e)
+                       }}
+                />
+                <label htmlFor={(item.content)}
+                >
                     {item.content}
                 </label>
-                {props.edit?<button type="button" index-custom={index} name={item.content}
-                         onClick={(e) => {
-                             handleCheckListDelete(e)
-                         }}>
-                    Delete Icon</button>:null}
-            </div>
-        )
-    })
-    const [tempItem,setTempItem] = useState({})
-    const handleAddItem = (name,value)=>{
-        setTempItem((prev)=>({...prev,[name]:value}))
+                {props.edit ? <button type="button" index-custom={index} data-name={item.content}
+                                      onClick={(e) => {
+                                          handleCheckListDelete(e)
+                                      }}>
+                    Delete Icon</button> : null}
+            </div>)
+    });
+    const [tempItem, setTempItem] = useState("")
+    const handleAddItem = (e) => {
+        setTempItem(() => (e.target.value));
     }
-    const handleAddSubmit = ()=>{
-        setTempList((prev) =>{return {...prev,tempItem}})
+    const handleAddSubmit = () => {
+        handleListChange([...tempList, {"content": tempItem, "isChecked": false}])
+        setTempItem("");
     }
 
-    return(
-   <div>
-     {renderList}
-       {props.edit?
-           <div>
-               <InputField name="addCheckItem" onChange={{handleAddItem}}/>
-                <button type="button" name="inputButton"
-                    onClick={handleAddSubmit}>
+    return (
+        <div>
+            {renderList}
+            {props.edit ?
+                <div>
+                    <input name="addCheckItem" onChange={handleAddItem} value={tempItem}/>
+                    <button type="button"
+                            onClick={(e) => handleAddSubmit(e)}>
                         Add Icon
-                </button>
-           </div>
-           :null}
-   </div>
-      )
+                    </button>
+                </div>
+                : null}
+        </div>
+    );
 }
 
 export default CardCheckbox;
