@@ -11,7 +11,7 @@ const NavPane = () =>{
                 </h1>
             </div>
             <nav>
-                <Link to={`/dashboard`}>Announcements</Link>
+                <Link to={`/dashboard/announcement`}>Announcements</Link>
                 <Link to={`/dashboard/todolist`}>ToDo List</Link>
                 <Link to={`/dashboard/workflow`}>Workflow</Link>
                 <Link to={`/dashboard/chat`}>Chat</Link>

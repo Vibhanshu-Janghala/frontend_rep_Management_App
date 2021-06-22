@@ -1,10 +1,24 @@
-const UsersOnline = (props) => {
+import {useSocket} from "./SocketContext";
+import {useEffect, useState} from "react";
+
+const UsersOnline = () => {
     // props.list = [{socketId,username},...]
-    const usersList = props.list.map((obj) => {
-        return <div className="onlineUser">
+    const socket = useSocket();
+    const [onlineUsers,setOnlineUsers] = useState([]);
+    useEffect(()=>{
+        socket.emit("getOnline");
+        socket.on("updateOnline",(data)=>{
+            setOnlineUsers(data);
+        });
+        return (()=>{
+            socket.removeAllListeners();
+        });
+    },[])
+    const usersList = onlineUsers.map((obj) => {
+        return <div key={obj.name} className="onlineUser">
             {obj.name}
         </div>
-    })
+    });
 
     return (
         <div>

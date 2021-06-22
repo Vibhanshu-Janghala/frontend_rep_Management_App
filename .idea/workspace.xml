@@ -2,31 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31c9caee-dbc0-4f66-95fb-977bd66fc9ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/AddAnnouncement.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AddToDoItem.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AddWorkflowList.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NoUrlMatch.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/my-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/my-app.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SocketContext.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Announcement.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Announcement.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CardCheckbox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/CardCheckbox.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Chat.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chat.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ChatRooms.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatRooms.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ChatWindow.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatWindow.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Dashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dashboard.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DisplayActiveCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DisplayActiveCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MessageInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/MessageInput.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NavPane.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/NavPane.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SignUp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/SignUp.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ToDoList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ToDoList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UsersOnline.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/UsersOnline.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Workflow.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Workflow.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/WorkflowCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/WorkflowCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_controller.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/LazyLoader.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +57,11 @@
       <workItem from="1622892797607" duration="6000" />
       <workItem from="1622893527859" duration="20086000" />
       <workItem from="1622987355538" duration="28285000" />
+      <workItem from="1623125884525" duration="17065000" />
+      <workItem from="1623223210971" duration="10307000" />
+      <workItem from="1623241106392" duration="361000" />
+      <workItem from="1623242468544" duration="2209000" />
+      <workItem from="1623265816857" duration="1665000" />
     </task>
     <servers />
   </component>

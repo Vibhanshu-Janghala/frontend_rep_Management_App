@@ -1,4 +1,3 @@
-import {useEffect} from "react";
 import NavPane from "./NavPane";
 import Announcement from "./Announcement";
 import ToDoList from "./ToDoList";
@@ -8,43 +7,33 @@ import {
     Route,
     Switch
 } from 'react-router-dom';
+import {SocketProvider} from "./SocketContext";
 
-import {io} from 'socket.io-client';
-import {useProfile} from "./ProfileContext";
 
 const Dashboard = () => {
-    console.log("running")
-    const {profileData} = useProfile();
-    let socket;
-    useEffect(()=>{
-        socket = io("http://localhost:8080/",
-        {
-            path:"/socket.io",
-            transports: ["websocket"],
-            reconnectionAttempts: 2,
-            auth: {
-                "authToken": profileData.authToken
-            }
-        })},[]);
-
     return (
-        <>
-            <NavPane/>
-            <Switch>
-                <Route exact path={`/dashboard`}>
-                    <Announcement/>
-                </Route>
-                <Route exact path={`/dashboard/todolist`}>
-                    <ToDoList/>
-                </Route>
-                <Route exact path={`/dashboard/workflow`}>
-                    <Workflow sockt={socket}/>
-                </Route>
-                <Route exact path={`/dashboard/chat`}>
-                    <Chat sockt={socket}/>
-                </Route>
-            </Switch>
-        </>
+        <SocketProvider>
+            <div>
+                <NavPane/>
+                <Switch>
+                    <Route exact path={`/dashboard/`}>
+                        <div> Click on any tab</div>
+                    </Route>
+                    <Route exact path={`/dashboard/announcement`}>
+                        <Announcement/>
+                    </Route>
+                    <Route exact path={`/dashboard/todolist`}>
+                        <ToDoList/>
+                    </Route>
+                    <Route exact path={`/dashboard/workflow`}>
+                        <Workflow/>
+                    </Route>
+                    <Route exact path={`/dashboard/chat`}>
+                        <Chat/>
+                    </Route>
+                </Switch>
+            </div>
+        </SocketProvider>
     );
 }
 export default Dashboard;

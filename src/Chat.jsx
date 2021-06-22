@@ -4,13 +4,13 @@ import ChatWindow from "./ChatWindow";
 import UsersOnline from "./UsersOnline";
 import MessageInput from "./MessageInput";
 import {useProfile} from "./ProfileContext";
+import {useSocket} from "./SocketContext";
 
 // props : chatSocket
 const Chat = (props) => {
     let {profileData} = useProfile()
-    let socket = props.sockt;
+    let socket = useSocket();
     const [currentChat, setCurrentChat] = useState([]);
-    const [onlineUsers, setOnlineUsers] = useState([]);
 
     const getChatRoomAndIndex = () => {
         let obj = {};
@@ -24,46 +24,47 @@ const Chat = (props) => {
 
     useEffect(() => {
             socket.emit("prevChat");
-            socket.emit("getOnline");
+            socket.on("currentChat", (chat) => {
+                setCurrentChat(chat);
+            });
+            // new chat room
+            socket.on("createRoom", (data) => {
+                setCurrentChat((prev) => {
+                    return ([...prev, {"room": data.room, content: []}]);
+                });
+            });
+
+            // delete chat room => Listener = "del"
+            socket.on("delRoom", (data) => {
+                let roomIndex = indexedRoom[data.room];
+                setCurrentChat((prev) => {
+                    let cloneArr = [...prev]
+                    cloneArr.splice(roomIndex, 1);
+                    return cloneArr;
+                });
+            });
+
+            // receive new messages and update chat
+            socket.on("newMessage", (data) => {
+                let roomIndex = indexedRoom[data.room];
+                let updatedRoom = [...currentChat[roomIndex].content, {"sender": data.sender, "message": data.message}];
+                setCurrentChat((prev) => {
+                    let cloneArr = [...prev]
+                    cloneArr.splice(roomIndex, 1, {"room": data.room, "content": updatedRoom});
+                    return cloneArr;
+                });
+            });
+            return (()=>{
+                socket.removeAllListeners();
+            });
         }
         , []);
-    socket.on("updateOnline", (users) => {
-        setOnlineUsers(users);
-    });
 
-    socket.on("currentChat", (chat) => {
-        setCurrentChat(chat);
-    });
-    // new chat room
-    socket.on("createRoom", (data) => {
-        setCurrentChat((prev) => {
-            return ([...prev, {"room": data.room, content: []}]);
-        });
-    });
 
-    // delete chat room => Listener = "del"
-    socket.on("delRoom", (data) => {
-        let roomIndex = indexedRoom[data.room];
-        setCurrentChat((prev) => {
-            let cloneArr = [...prev]
-            cloneArr.splice(roomIndex, 1);
-            return cloneArr;
-        });
-    });
 
-    // receive new messages and update chat
-    socket.on("newMessage", (data) => {
-        let roomIndex = indexedRoom[data.room];
-        let updatedRoom = [...currentChat[roomIndex].content, {"sender": data.sender, "message": data.message}];
-        setCurrentChat((prev) => {
-            let cloneArr = [...prev]
-            cloneArr.splice(roomIndex, 1, {"room": data.room, "content": updatedRoom});
-            return cloneArr;
-        });
-    });
 
     // handler for selected chat room
-    const [currentChatRoom, setCurrentChatRoom] = useState(["",-1]);
+    const [currentChatRoom, setCurrentChatRoom] = useState(["", -1]);
     const handleRoom = (name, index) => (setCurrentChatRoom([name, index]));
 
     // handler for adding new chat room
@@ -90,7 +91,7 @@ const Chat = (props) => {
             socket.emit("deleteRoom", data, (response) => {
                 if (response.status === 200) {
 
-                    setCurrentChatRoom(["",-1]);
+                    setCurrentChatRoom(["", -1]);
                     let roomIndex = index;
                     setCurrentChat((prev) => {
                         let cloneArr = [...prev];
@@ -125,7 +126,7 @@ const Chat = (props) => {
 
     }
     console.log(currentChatRoom)
- console.log((currentChatRoom !== ["",-1]));
+    console.log((currentChatRoom !== ["", -1]));
     return (
         <>
             <ChatRooms
@@ -144,7 +145,7 @@ const Chat = (props) => {
                     onSubmit={handleMessageSubmit}
                 />
             </div> : null}
-            <UsersOnline list={onlineUsers}/>
+            <UsersOnline/>
 
         </>
     );

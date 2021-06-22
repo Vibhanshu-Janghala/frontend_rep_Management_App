@@ -29,8 +29,8 @@ const WorkflowCard = (props) => {
                      onClick={(e) => handleClick(e, false)}>
 
                     {item.title}
-                    <div>{"Managed By: " + item.managedBy}</div>
-                    <div>{"Priority: " + item.priority}</div>
+                    {"Managed By: " + item.managedBy}
+                    {"Priority: " + item.priority}
                 </div>
             );
         });

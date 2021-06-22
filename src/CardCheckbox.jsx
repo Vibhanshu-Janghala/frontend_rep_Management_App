@@ -2,7 +2,7 @@ import {useState} from "react";
 
 //tempList format =>[ {"content":content,"isChecked":true/false} ]
 const CardCheckbox = (props) => {
-    const tempList = props.checkList;
+    const tempList = (props.checkList || []);
 
     const handleListChange = (newList) => {
         props.onChange({"target": {"name": "progressList", "value": newList}});

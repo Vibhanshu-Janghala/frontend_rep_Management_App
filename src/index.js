@@ -6,11 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import {ProfileProvider} from "./ProfileContext";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <>
       <ProfileProvider>
             <App />
       </ProfileProvider>
-  </React.StrictMode>,
+  </>,
   document.getElementById('root')
 );
 

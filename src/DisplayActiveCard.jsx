@@ -1,104 +1,92 @@
 import CardCheckbox from "./CardCheckbox";
-import {useState} from "react";
+import { useState} from "react";
 import {useProfile} from "./ProfileContext";
 
 
 // props contain listName,newCard,cardTitle, card and Updater function
 const DisplayActiveCard = (props) => {
     const {profileData} = useProfile();
-    const [editMode, setEditMode] = useState(props.newCard);
-    const [cardInput, setCardInput] = useState({...props.card});
+    const newCard = props.newCard;
+    const [editMode, setEditMode] = useState(false);
+    //const initialInput = {...(props.card)}
+    const [cardInput, setCardInput] = useState({...(props.card)});
     const handleInput = (e) => {
         return setCardInput((prev) => ({...prev, [e.target.name]: e.target.value}));
     }
-    console.log("here edit")
- console.log(cardInput);
-    //if new card set Edit Mode true
-    const handleSubmit = (e)=>{
-        e.preventDefault();
-        props.onButtonClick("save", cardInput, props.newCard);
-        setEditMode(() => false);
-
+    const handleSubmit = ()=>{
+        props.onButtonClick("save", cardInput, newCard);
     }
-
-    const handleCardButton = (button) => {
-        switch (button) {
-
-            case "delete":
-                props.onButtonClick("delete", null, props.newCard);
-                setEditMode(() => false);
-                break;
-            case "cancel":
-                setCardInput(props.card);
-                setEditMode(() => false);
-                break;
-            case "closeCard":
-                props.onButtonClick("closeCard", null, null);
-                setEditMode(() => false);
-                break;
-            default:
-                console.log("No Case Match for card button")
-                break;
-        }
+    const handleDeleteButton = ()=>{
+        props.onButtonClick("delete", null, newCard);
+    }
+    const handleCancelButton = ()=>{
+        setCardInput({...(props.card)});
+        setEditMode(false);
+    }
+    const handleCloseCard = ()=>{
+        props.onButtonClick("closeCard", null, null);
+    }
+    const handleEditToggle =  ()=>{
+        setEditMode(true);
     }
 
     // ADD ROWS AND COLUMN TO TEXTAREA LATER
     return (
         <div>
-            <form onSubmit={(e)=> handleSubmit(e)}>
+            <div>
 
                 <input
                     name="title"
                     value={cardInput.title}
                     type="text"
-                    disabled={!editMode}
+                    disabled={!(editMode||newCard)}
                     onChange={handleInput}
                 />
 
-                <button type="button" onClick={() => handleCardButton("closeCard")}>
+                <button type="button" onClick={handleCloseCard}>
                     Close Card
                 </button>
 
                 <div> {props.listName} </div>
 
                 <div>
-                    <label htmlFor="description"> Description </label>
-                    <textarea name="description"
-                              id={"description"}
-                              disabled={!editMode}
-                              value={cardInput.description}
+                    <label htmlFor="givenDescription"> Description </label>
+                    <textarea name="givenDescription"
+                              id={"givenDescription"}
+                              disabled={!(editMode||newCard)}
+                              value={cardInput.givenDescription}
                               onChange={handleInput}>
-                        {cardInput.description}
+                        {cardInput.givenDescription}
                      </textarea>
                 </div>
-                <CardCheckbox edit={editMode}
+                <CardCheckbox edit={(editMode||newCard)}
                               onChange={handleInput}
                               checkList={cardInput.progressList}
                 />
                 <div>
                     {(profileData.level === 2 || profileData.level === 1) ?
-                        editMode ? <div>
+                        (editMode||newCard) ? <div>
                                 <button name="save-card"
-                                        type="submit" value="Submit"
-                                        >
+                                        type="button"
+                                        onClick={handleSubmit}>
                                     Save
                                 </button>
                                 <button name="cancel-card"
-                                        onClick={() => {
-                                            handleCardButton("cancel")
-                                        }}>
+                                        type="button"
+                                        onClick={ handleCancelButton }>
                                     Cancel
                                 </button>
                             </div>
                             :
                             <div>
                                 <button name="edit-card"
-                                        onClick={setEditMode((prev) => !prev)}>
+                                        type="button"
+                                        onClick={ handleEditToggle } >
                                     Edit
                                 </button>
-                                <button name="delete-card" onClick={() => {
-                                    handleCardButton("delete")
-                                }}>
+                                <button name="delete-card"
+                                        type="button"
+                                        onClick={ handleDeleteButton } >
                                     Delete
                                 </button>
                             </div> : null
@@ -108,23 +96,23 @@ const DisplayActiveCard = (props) => {
                 <input name="managedBy"
                        value={cardInput.managedBy}
                        onChange={handleInput}
-                       disabled={!editMode}
+                       disabled={!(editMode||newCard)}
                        type="text"
                 />
                 <label htmlFor="priority">Task Priority</label>
                 <input name="priority"
                        value={cardInput.priority}
                        onChange={handleInput}
-                       disabled={!editMode}
+                       disabled={!(editMode||newCard)}
                        type="text"
                 />
                 <input type="date"
                        name="dueDate"
                        value={cardInput.dueDate}
-                       disabled={!editMode}
+                       disabled={!(editMode||newCard)}
                        onChange={handleInput}
                 />
-            </form>
+            </div>
         </div>);
 
 }

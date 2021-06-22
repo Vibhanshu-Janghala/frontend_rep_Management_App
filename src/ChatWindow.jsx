@@ -7,14 +7,14 @@ const ChatWindow = (props) => {
     let messageDiv = props.chatContent.map((item) => {
         if (item.sender === profileData.name) {
             return (
-                <div className="iSent">
+                <div  key={item.id} className="iSent">
                     <span>{item.sender}</span>
                     <span>{item.message}</span>
                 </div>
             );
         }
         return (
-            <div className="othersSent">
+            <div key={item.message} className="othersSent">
                 <span>{item.sender}</span>
                 <span>{item.message}</span>
             </div>
