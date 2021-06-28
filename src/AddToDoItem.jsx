@@ -15,7 +15,7 @@ const AddToDoItem = (props) => {
         setNewToDo({"title": "", "content": ""})
     }
 
-    return (<div>
+    return (<div className={"todo-form"}>
         <form onSubmit={(e) => handleSubmit(e)}>
             <input name="title"
                    type="text"

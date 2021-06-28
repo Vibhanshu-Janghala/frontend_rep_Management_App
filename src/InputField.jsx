@@ -1,5 +1,4 @@
 import React , { useState } from "react";
-
 //import css file
 
 const InputField = (props) => {
@@ -7,10 +6,10 @@ const InputField = (props) => {
     const [value,setValue] = useState("");
     const handleChange = (event)=> {
         setValue(event.target.value)
-        props.onChange(event.target.name,event.target.value)
+        props.onChange(event.target.name,event.target.value);
     }
     return(
-        <div>
+        <div className={props.className}>
             <label>
                 {props.label}
             </label >

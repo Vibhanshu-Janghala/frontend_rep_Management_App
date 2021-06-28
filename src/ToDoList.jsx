@@ -1,5 +1,7 @@
 import {useProfile} from "./ProfileContext";
 import AddToDoItem from "./AddToDoItem";
+import "./ToDoList.css";
+import {ReactComponent as DeleteSVG} from "./icons/trash-solid.svg";
 //array need not be sorted here
 const ToDoList = () => {
     let {profileData, setProfileData} = useProfile();
@@ -7,8 +9,8 @@ const ToDoList = () => {
 
     async function handleDelete(e) {
         e.preventDefault();
-        let index = e.target.getAttribute("index-custom");
-        let title = e.target.getAttribute("title-custom");
+        let index = e.target.parentNode.parentNode.getAttribute("index-custom");
+        let title = e.target.parentNode.parentNode.getAttribute("title-custom");
         if (toDoList[index].title === title) {
             let response = await fetch("http://localhost:8080/api/todoList/delete",
                 {
@@ -29,7 +31,7 @@ const ToDoList = () => {
                 setProfileData((prev) => {
                     return {...prev, tdl: cloneList};
                 });
-                console.log("Successfully deleted");
+                console.log("Successfully deleted ToDo Item");
             } else {
                 console.log("Some error occurred");
             }
@@ -40,15 +42,16 @@ const ToDoList = () => {
     // render list of toDoItems
     const listItems = toDoList.map((tdl, i) => {
         return (
-            <div key={tdl.title}>
-                <p>{tdl.title}</p>
-                <p>{tdl.content}</p>
+            <div key={tdl.title} className={"todo-item"}>
+                <span>{tdl.title}</span>
                 <button type="button" title-custom={tdl.title}
                         index-custom={i}
                         onClick={(e) => {
                             handleDelete(e).catch((error) => (console.log("ERROR :-" + error)))
-                        }}>Delete
+                        }}><DeleteSVG />
                 </button>
+                <p>{tdl.content}</p>
+
             </div>
         )});
 
@@ -75,7 +78,7 @@ const ToDoList = () => {
                 setProfileData((prev) => {
                     return {...prev, tdl: [...toDoList,newToDo]};
                 });
-                console.log("Successfully Added")
+                console.log("Successfully Added Todo Item")
             } else {
                 console.log("Some error occurred");
             }
@@ -85,7 +88,7 @@ const ToDoList = () => {
 
     // elements returned from ToDoComponent
     return (
-        <div>
+        <div className={"todo-main"}>
             <AddToDoItem onSubmit={handleSubmit}/>
             {listItems}
         </div>

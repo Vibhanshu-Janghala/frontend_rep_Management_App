@@ -16,7 +16,7 @@ function App() {
     let {profileData} = useProfile();
 
     return (
-        <div>
+        <div className={"route-container"}>
             <Router>
                 <Switch>
                     <Route exact path="/">

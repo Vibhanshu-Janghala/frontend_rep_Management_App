@@ -2,6 +2,8 @@ import React, {useContext} from "react";
 import {useProfile} from "./ProfileContext";
 import {io} from "socket.io-client";
 
+// Program Flaw : This file runs everytime todoList is edited
+
 const SocketContext = React.createContext(null);
 
 export function useSocket() {
@@ -9,7 +11,6 @@ export function useSocket() {
 }
 
 export function SocketProvider({children}) {
-    console.log("provide SOcket");
 
     const {profileData} = useProfile();
     let socket;
@@ -18,7 +19,7 @@ export function SocketProvider({children}) {
             "path": "/socket.io",
             "upgrade": false,
             "transports": ["websocket"],
-            "reconnection": false,
+            "reconnection": true,
             "reconnectionDelay": 3000,
             "reconnectionAttempts": 4,
             "forceNew": false,
@@ -28,10 +29,9 @@ export function SocketProvider({children}) {
         });
     }
     if(profileData.name!= null){
-        console.log("running")
         socket = socketInitializer();
     }
-    socket.on("connect", () => console.log("YOOOOOOOO"))
+    socket.on("connect", () => {})
 
     return (
         <SocketContext.Provider value={socket}>

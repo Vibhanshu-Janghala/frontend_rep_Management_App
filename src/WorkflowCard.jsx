@@ -7,15 +7,14 @@ const WorkflowCard = (props) => {
     const {profileData} = useProfile();
     const cardList = props.cardList;
     const handleClick = (e, newCard) => {
-        if(!newCard) {
+        if (!newCard) {
             return props.handleCardClick(e.target.getAttribute("data-parent")
                 , e.target.id, newCard,
                 [props.listIndex, e.target.getAttribute("index-card-custom")]);
-        }
-        else{
+        } else {
             return props.handleCardClick(e.target.getAttribute("data-parent"),
-                null,newCard,
-                [props.listIndex,null]);
+                null, newCard,
+                [props.listIndex, null]);
         }
     }
 
@@ -23,27 +22,30 @@ const WorkflowCard = (props) => {
     const cards =
         (cardList.content).map((item, index) => {
             return (
-                <div key={item.title} id={item.title}
-                     data-parent={cardList.listName}
-                     index-card-custom={index}
-                     onClick={(e) => handleClick(e, false)}>
-
-                    {item.title}
-                    {"Managed By: " + item.managedBy}
-                    {"Priority: " + item.priority}
+                <div key={item.title}
+                     className={"card-container"}>
+                    <div id={item.title}
+                         className={"clickable-div"}
+                         data-parent={cardList.listName}
+                         index-card-custom={index}
+                         onClick={(e) => handleClick(e, false)}>{item.title}</div>
+                    <div>{"Managed By: " + item.managedBy}</div>
+                    <div>{"Priority: " + item.priority}</div>
                 </div>
             );
         });
 
     return (
-        <div>
-            {(profileData.level ===1 || profileData.level === 2)?<button type="button"
-                     id={null}
-                     data-parent={cardList.listName}
-                     onClick={(e) => handleClick(e, true)}>
-                Add card
-            </button>:null}
+        <div >
+            {(profileData.level === 1 || profileData.level === 2) ?
+                <button type="button"
+                        id={null}
+                        data-parent={cardList.listName}
+                        onClick={(e) => handleClick(e, true)}>
+                    Add card
+                </button> : null}
             {cards}
+
         </div>
     )
 }

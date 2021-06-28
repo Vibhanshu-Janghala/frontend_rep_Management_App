@@ -1,11 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import ChatRooms from "./ChatRooms";
 import ChatWindow from "./ChatWindow";
-import UsersOnline from "./UsersOnline";
 import MessageInput from "./MessageInput";
 import {useProfile} from "./ProfileContext";
 import {useSocket} from "./SocketContext";
-
+import "./Chat.css";
 // props : chatSocket
 const Chat = (props) => {
     let {profileData} = useProfile()
@@ -21,6 +20,11 @@ const Chat = (props) => {
     }
 
     const indexedRoom = getChatRoomAndIndex();
+    const refObject = useRef({"indexedRoom": indexedRoom, "currentChat": currentChat});
+
+    useEffect(() => {
+        refObject.current = {"indexedRoom": indexedRoom, "currentChat": currentChat}
+    }, [currentChat]);
 
     useEffect(() => {
             socket.emit("prevChat");
@@ -36,7 +40,12 @@ const Chat = (props) => {
 
             // delete chat room => Listener = "del"
             socket.on("delRoom", (data) => {
-                let roomIndex = indexedRoom[data.room];
+                let roomIndex = refObject.current.indexedRoom[data.room];
+                // remove current room if equal tod deleted
+                if (currentRef.current[0] === data.room) {
+                    setCurrentChatRoom(["", -1]);
+                }
+                //update chat
                 setCurrentChat((prev) => {
                     let cloneArr = [...prev]
                     cloneArr.splice(roomIndex, 1);
@@ -46,37 +55,36 @@ const Chat = (props) => {
 
             // receive new messages and update chat
             socket.on("newMessage", (data) => {
-                let roomIndex = indexedRoom[data.room];
-                let updatedRoom = [...currentChat[roomIndex].content, {"sender": data.sender, "message": data.message}];
+                let roomIndex = refObject.current.indexedRoom[data.room];
+                let updatedRoom = [...refObject.current.currentChat[roomIndex].content,
+                    {"sender": data.sender, "message": data.message, "timeStamp": data.timeStamp}];
                 setCurrentChat((prev) => {
                     let cloneArr = [...prev]
                     cloneArr.splice(roomIndex, 1, {"room": data.room, "content": updatedRoom});
                     return cloneArr;
                 });
             });
-            return (()=>{
+            return (() => {
                 socket.removeAllListeners();
             });
         }
         , []);
 
 
-
-
     // handler for selected chat room
     const [currentChatRoom, setCurrentChatRoom] = useState(["", -1]);
     const handleRoom = (name, index) => (setCurrentChatRoom([name, index]));
+    const currentRef = useRef(currentChatRoom);
+    useEffect(() => {
+        currentRef.current = currentChatRoom
+    }, [currentChatRoom]);
 
     // handler for adding new chat room
     const handleAddRoom = (name) => {
         if (profileData.level === 2) {
             const data = {"room": name};
             socket.emit("newRoom", data, (response) => {
-                if (response.status === 200) {
-                    setCurrentChat((prev) => {
-                        return ([...prev, {"room": data.room, content: []}]);
-                    });
-                } else {
+                if (response.status !== 200) {
                     console.log("Some Error Occurred");
                 }
             });
@@ -89,16 +97,7 @@ const Chat = (props) => {
         if (profileData.level === 2) {
             let data = {"room": name};
             socket.emit("deleteRoom", data, (response) => {
-                if (response.status === 200) {
-
-                    setCurrentChatRoom(["", -1]);
-                    let roomIndex = index;
-                    setCurrentChat((prev) => {
-                        let cloneArr = [...prev];
-                        cloneArr.splice(roomIndex, 1);
-                        return cloneArr;
-                    });
-                } else {
+                if (response.status !== 200) {
                     console.log("Some Error Occurred");
                 }
             });
@@ -111,13 +110,7 @@ const Chat = (props) => {
         socket.emit("message", data, (response) => {
             // if acknowledgement successful
             if (response.status === 200) {
-                let roomIndex = indexedRoom[data.room];
-                let updatedRoom = [...currentChat[roomIndex].content, {"sender": data.sender, "message": data.message}];
-                setCurrentChat((prev) => {
-                    let cloneArr = [...prev];
-                    cloneArr.splice(roomIndex, 1, {"room": data.room, "content": updatedRoom});
-                    return cloneArr;
-                })
+                return null;
             } else {
                 console.log("Error occurred while sending message")
             }
@@ -125,10 +118,8 @@ const Chat = (props) => {
         })
 
     }
-    console.log(currentChatRoom)
-    console.log((currentChatRoom !== ["", -1]));
     return (
-        <>
+        <div className={"chat-main-flex"}>
             <ChatRooms
                 rooms={indexedRoom}
                 onChange={handleRoom}
@@ -136,7 +127,8 @@ const Chat = (props) => {
                 onDelete={handleDelete}
                 onAddRoom={handleAddRoom}
             />
-            {(currentChatRoom[0] !== "") ? <div>
+
+            {(currentChatRoom[0] !== "") ? <div className={"current-chat"}>
                 <ChatWindow
                     chatTitle={currentChatRoom[0]}
                     chatContent={currentChat[currentChatRoom[1]].content}
@@ -145,9 +137,7 @@ const Chat = (props) => {
                     onSubmit={handleMessageSubmit}
                 />
             </div> : null}
-            <UsersOnline/>
-
-        </>
+        </div>
     );
 
 }

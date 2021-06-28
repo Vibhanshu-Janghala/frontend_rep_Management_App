@@ -32,9 +32,7 @@ const DisplayActiveCard = (props) => {
 
     // ADD ROWS AND COLUMN TO TEXTAREA LATER
     return (
-        <div>
-            <div>
-
+            <div className={"active-card"}>
                 <input
                     name="title"
                     value={cardInput.title}
@@ -113,7 +111,7 @@ const DisplayActiveCard = (props) => {
                        onChange={handleInput}
                 />
             </div>
-        </div>);
+        );
 
 }
 export default DisplayActiveCard;

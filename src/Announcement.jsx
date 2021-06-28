@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from "react";
 import AddAnnouncement from "./AddAnnouncement";
 import {useProfile} from "./ProfileContext";
-
+import "./Announcement.css" ;
+import {ReactComponent as DeleteSVG} from "./icons/trash-solid.svg";
 
 const Announcement = () => {
     // get Announcements at start
     const [announcements, setAnnouncements] = useState([]);
     let {profileData} = useProfile();
     useEffect(() => {
-        console.log("RUNNING USE EFFECT")
         fetchAnnouncement().catch((e) => console.log("Error :-" + e));
     }, []);
 
@@ -38,8 +38,8 @@ const Announcement = () => {
     // handle deletion of Announcements
     async function handleAnnounceDelete(e) {
         e.preventDefault();
-        let index = e.target.getAttribute("index-custom");
-        let title = e.target.getAttribute("title-custom");
+        let index = e.target.parentNode.parentNode.getAttribute("index-custom");
+        let title = e.target.parentNode.parentNode.getAttribute("title-custom");
         if (announcements[index].title === title) {
             let response = await fetch("http://localhost:8080/api/announcement/delete",
                 {
@@ -53,13 +53,12 @@ const Announcement = () => {
                     cache: 'no-cache',
                     referrerPolicy: 'no-referrer',
                     mode: "cors",
-                    body: JSON.stringify({"title":title})
+                    body: JSON.stringify({"title": title})
                 });
             if (response.status === 200) {
-                let arrClone = announcements.filter((item)=>(item.title)!==title);
+                let arrClone = announcements.filter((item) => (item.title) !== title);
                 setAnnouncements(arrClone);
                 console.log("Successfully deleted");
-                console.log(announcements);
             } else {
                 console.log("Some error occurred");
             }
@@ -69,17 +68,18 @@ const Announcement = () => {
     // Display the announcements list
     const listItems = announcements.map((a, i) => {
         return (
-            <div key={a.title}>
-                <p>{a.title}</p>
-                <p>{a.description}</p>
+            <div key={a.title} className={"announcement-box"}>
+                <span>{a.title}</span>
                 {(profileData.level === 2) ?
                     (<button type="button"
                              title-custom={a.title}
                              index-custom={i}
                              onClick={(e) => handleAnnounceDelete(e)}>
-                        Delete
+                        <DeleteSVG  />
                     </button>) : null
                 }
+                <p>{a.description}</p>
+
             </div>);
     })
 
@@ -100,8 +100,8 @@ const Announcement = () => {
                 body: JSON.stringify(newAnnounce)
             });
         if (response.status === 200) {
-            setAnnouncements((prev) =>[...prev, newAnnounce]);
-            console.log("Successfully Created");
+            setAnnouncements((prev) => [...prev, newAnnounce]);
+            console.log("Successfully Created Announcement");
         } else {
             console.log("Some Error occurred");
         }
@@ -110,9 +110,15 @@ const Announcement = () => {
     //re render when listItems change
 
     return (
-        <div>
-            <div>{(profileData.level === 2) ? <AddAnnouncement onSubmit={submitNewAnnouncement}/> : <></>}</div>
-            <div>{listItems}</div>
+        <div className={"announcement-main"}>
+            <div >
+                <div><h3>Add Announcement</h3></div>
+                <div>{(profileData.level === 2) ? <AddAnnouncement onSubmit={submitNewAnnouncement}/> : <></>}</div>
+            </div>
+            <div >
+                <div><h3>Recent Announcements</h3></div>
+                <div className={"announcement-list"}>{listItems}</div>
+            </div>
         </div>
     )
 }

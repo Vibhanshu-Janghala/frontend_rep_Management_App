@@ -1,34 +1,36 @@
 import React, {useEffect, useState} from "react";
 //Login page css
 import InputField from './InputField'
-import {Link, useHistory, useRouteMatch} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import {useProfile} from "./ProfileContext";
+import ErrorDisplay from "./ErrorDisplay";
+import "./Login.css" ;
 
-function LoginPage(){
+const LoginPage = () => {
     let history = useHistory();
-    console.log(useRouteMatch());
-    const {profileData,setProfileData} = useProfile();
-    const [data,setData] = useState({});
+    const {profileData, setProfileData} = useProfile();
+    const [data, setData] = useState({});
+    const [apiError, setApiError] = useState({"exists": false, "content": ""});
 
     // when profileData is fetched and useState has updated useEffect will trigger
-    useEffect(()=>{
-        if(profileData.name != null){
+    useEffect(() => {
+        if (profileData.name != null) {
             history.push("/dashboard");
         }
-    },[profileData]);
+    }, [profileData]);
 
-    const handleChange = (name,value) =>{
-        return(setData(prev =>{return({ ...prev , [name]: value})}))
+    const handleChange = (name, value) => {
+        return (setData(prev => {
+            return ({...prev, [name]: value})
+        }))
     }
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        console.log(data)
 
-        let response = await fetch("http://localhost:8080/api/login",  {
+        e.preventDefault();
+        let response = await fetch("http://localhost:8080/api/login", {
             method: "POST",
-            headers:{
-                'Accept': 'application/json',
+            headers: {
                 'Content-Type': 'application/json'
             },
             credentials: "include",
@@ -39,40 +41,56 @@ function LoginPage(){
         });
 
         //if login successful
-        if(response.status === 200){
+        if (response.status === 200) {
             let jsResponse = await response.json();
-            console.log(jsResponse);
-            setProfileData(()=>jsResponse);
+            setProfileData(() => jsResponse);
+        } else if (response.status === 401) {
+            const textResponse = await response.text();
+            setApiError(() => {
+                    return {"exists": true, "content": textResponse}
+                }
+            )
+        } else {
+            setApiError(() => {
+                return {"exists": true, "content": "Internal Server Error"}
+            })
         }
-        else{
-            console.log("Error occurred while Logging In")
-        }
+
     }
 
-    return(
-        <div>
-            <form onSubmit ={ (e)=>handleSubmit(e)} >
+    return (
+        <div className={"login-box"}>
+            <h2>Login</h2>
+            <form onSubmit={(e) => handleSubmit(e)}>
                 <InputField
                     name="name"
-                    type ="text"
-                    placeholder= "Username"
-                    onChange = {handleChange}
+                    type="text"
+                    placeholder="Username"
+                    onChange={handleChange}
+                    className={"user-box"}
                 />
                 <InputField
                     name="password"
-                    type ="password"
-                    placeholder= "Password"
-                    onChange = {handleChange}
+                    type="password"
+                    placeholder="Password"
+                    onChange={handleChange}
+                    className={"user-box"}
                 />
-                <button type = "submit" value = "Submit" >
-                    Log In
-                </button>
+                <button type="submit" value="Submit" className={"log-in"}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>Log In</button>
 
             </form>
-            <Link to={"/signup"}>Sign Up!</Link>
+            <ErrorDisplay showError={apiError.exists} errorContent={apiError.content}/>
+            <Link to={"/signup"} className={"sign-up"}><span></span>
+                <span></span>
+                <span></span>
+                <span></span>Sign Up!</Link>
 
         </div>
 
-    )
+    );
 }
 export default LoginPage;

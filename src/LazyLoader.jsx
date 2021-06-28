@@ -14,6 +14,7 @@ const LazyLoader = () => {
             history.push("/dashboard");
         }
         else{
+
             fetchProfileData()
                 .catch((e) => console.log("Error fetching Access Tok :" + e));
         }

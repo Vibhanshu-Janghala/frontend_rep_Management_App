@@ -17,17 +17,18 @@ const AddAnnouncement = (props) => {
 
     return (
         <div>
-            <form onSubmit={(e)=>handleSubmit(e)}>
+            <form onSubmit={(e)=>handleSubmit(e)} className={"announcement-form"}>
                 <input name="title"
                             type="text"
                             placeholder="Title"
                             onChange={handleChange}/>
-                <input name="description"
-                            type="text"
-                            placeholder="Announcement Description"
-                            onChange={handleChange}/>
+
+                    <textarea name="description"
+                              onChange={handleChange} placeholder="Description" className={"announce-textarea"}>
+                     </textarea>
+
                 <button type="submit">
-                    Post Announcement
+                    Post
                 </button>
             </form>
         </div>

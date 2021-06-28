@@ -2,20 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31c9caee-dbc0-4f66-95fb-977bd66fc9ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/SocketContext.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Announcement.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Chat.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Dashboard.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ErrorDisplay.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NavPane.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ToDoList.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UsersOnline.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Workflow.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/send_black_36dp.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/trash-solid.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/my-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/my-app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CardCheckbox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/CardCheckbox.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AddAnnouncement.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddAnnouncement.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AddToDoItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddToDoItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AddWorkflowList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddWorkflowList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Announcement.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Announcement.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Chat.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chat.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ChatRooms.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatRooms.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ChatWindow.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatWindow.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Dashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dashboard.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DisplayActiveCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DisplayActiveCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InputField.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/InputField.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LazyLoader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/LazyLoader.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MessageInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/MessageInput.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NavPane.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/NavPane.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SignUp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/SignUp.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SocketContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/SocketContext.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ToDoList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ToDoList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UsersOnline.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/UsersOnline.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Workflow.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Workflow.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/WorkflowCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/WorkflowCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +48,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1tRpGCZrUILDsaKZx44S1guIizA" />
   <component name="ProjectViewState">
@@ -34,6 +66,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -42,8 +75,26 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="ts.external.directory.path" value="C:\Users\vibha\AppData\Local\JetBrains\Toolbox\apps\WebStorm\ch-0\203.7717.59\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
+    <property name="ts.external.directory.path" value="C:\Users\Vibhanshu\AppData\Local\JetBrains\Toolbox\apps\WebStorm\ch-0\211.7442.26\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -62,6 +113,23 @@
       <workItem from="1623241106392" duration="361000" />
       <workItem from="1623242468544" duration="2209000" />
       <workItem from="1623265816857" duration="1665000" />
+      <workItem from="1624366334623" duration="8815000" />
+      <workItem from="1624383510535" duration="1377000" />
+      <workItem from="1624392755014" duration="2985000" />
+      <workItem from="1624396505645" duration="60000" />
+      <workItem from="1624426455565" duration="5334000" />
+      <workItem from="1624467523125" duration="2087000" />
+      <workItem from="1624525707092" duration="6857000" />
+      <workItem from="1624594228124" duration="7225000" />
+      <workItem from="1624611404626" duration="14032000" />
+      <workItem from="1624684786600" duration="3027000" />
+      <workItem from="1624688513265" duration="6326000" />
+      <workItem from="1624698641673" duration="1699000" />
+      <workItem from="1624703664827" duration="9023000" />
+      <workItem from="1624717251332" duration="7353000" />
+      <workItem from="1624775051992" duration="4536000" />
+      <workItem from="1624792142800" duration="14823000" />
+      <workItem from="1624853726788" duration="5613000" />
     </task>
     <servers />
   </component>
@@ -79,5 +147,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

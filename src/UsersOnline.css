@@ -1,0 +1,19 @@
+.onlineUser-container {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 5px;
+    border-radius: 10px;
+}
+.onlineUser-item{
+    border-radius: 10px;
+    margin: 10px 20px;
+    padding: 5px 8px;
+    background: rgba(166, 166, 182, 0.22);
+    font-size: 22px;
+    font-weight: 500;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.31);
+
+    color: #0cea10;
+    cursor: default;
+}

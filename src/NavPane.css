@@ -1,0 +1,70 @@
+.nav-pane-title{
+    margin-top: 20px;
+    padding:auto;
+}
+.navpane-welcome{
+    padding: 100px 50px 20px;
+}
+.navpane-welcome h2{
+
+}
+.nav-menu {
+    z-index:200;
+    height: 100%;
+    width: 250px;
+    background-color: rgba(255, 255, 255, .5);
+    margin-left: -450px;
+    margin-top: -10px;
+    opacity: 0;
+    -webkit-box-shadow: 10px 10px 6px -8px rgba(161, 136, 119, .7);
+    transition: all .3s ease-in-out;
+    border-radius: 2px;
+    padding: 0 ;
+    border-right: 1px solid rgba(0, 0, 0, .2);
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+.nav-closed {
+    margin-left: 0px;
+    opacity: 1;
+}
+
+.nav-all-links {
+    margin: 10px;
+    padding: 10px;
+    text-align: right;
+    opacity: 1;
+    transition: all .7s ease-out;
+    transition-delay: .3s;
+    letter-spacing: 2px;
+}
+
+.nav-links-close {
+    padding-top: 50px;
+    opacity: 0;
+    letter-spacing: 0px;
+}
+
+.link-list {
+    padding-top: 10px;
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+.link-list li {
+    list-style-type: none;
+    margin: 0;
+    margin-bottom: 30px;
+    border-bottom: 2px solid rgba(0, 0, 0, .5);
+    padding: 3px;
+}
+
+.link-list .nav-link {
+    text-decoration: none;
+    color: rgba(0, 0, 0, .5);
+    transition: color .3s ease;
+}
+
+.link-list .nav-link:hover {
+    cursor:pointer;
+    color: rgba(0, 0, 0, .3);
+}

@@ -1,8 +1,8 @@
 import React,{useState} from "react";
+import {ReactComponent as SendSVG} from "./icons/send_black_36dp.svg";
 
 const MessageInput = (props)=>{
    const [message,setMessage]= useState("");
-   console.log("working")
 
     const handleSubmit = (e)=>{
        e.preventDefault();
@@ -14,7 +14,7 @@ const MessageInput = (props)=>{
        setMessage(e.target.value);
    }
     return(
-        <form onSubmit={(e)=>handleSubmit(e)}>
+        <form onSubmit={(e)=>handleSubmit(e)} className={"message-input"}>
             <input
                 name="message"
                 placeholder="Message..."
@@ -23,7 +23,7 @@ const MessageInput = (props)=>{
             />
 
             <button type="submit" value="Submit" >
-                Send
+                <SendSVG />
             </button>
 
 

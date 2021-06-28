@@ -1,0 +1,70 @@
+/*
+REPLACE BACKGROUND COLOUR AFTERWARDS
+*/
+
+.dashboard-container{
+    background : transparent;
+    font-weight: lighter;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.main-content{
+    height: calc(100% - 70px);
+    margin-top: 70px;
+    padding-left: 3%;
+    padding-right: 3%;
+    width: 100%;
+    overflow-y: auto;
+}
+@media screen and (min-width: 750px) {
+    .main-content {
+        height: calc(100% - 70px);
+        margin-top: 70px;
+    }
+
+}
+
+.nav-toggle {
+    cursor: pointer;
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    margin: 20px;
+    padding: 0px;
+    height: 50px;
+    width: 50px;
+    font-size: 20px;
+    color: rgba(0, 0, 0, .5);
+    font-weight: bold;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, .8);
+    transform: rotate(0deg);
+    transition: all .2s ease-in;
+    border: 0 none;
+}
+
+.nav-toggle:hover {
+    cursor: pointer;
+    transform: scale(1.1) rotate(0deg);
+    -webkit-box-shadow: 10px 2px 8px -8px rgba(179, 164, 139, .6);
+}
+
+.nav-toggle:focus {
+    cursor: pointer;
+    outline: 0 none;
+}
+
+.close {
+    cursor: pointer;
+    transform: rotate(45deg);
+    background-color: rgba(109, 163, 140, 1);
+    -webkit-box-shadow: 10px 2px 8px -8px rgba(179, 164, 139, .6);
+}
+
+.close:hover {
+    transform: scale(1.1) rotate(45deg);
+}
