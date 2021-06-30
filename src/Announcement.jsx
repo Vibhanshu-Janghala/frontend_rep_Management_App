@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import AddAnnouncement from "./AddAnnouncement";
 import {useProfile} from "./ProfileContext";
 import "./Announcement.css" ;
-import {ReactComponent as DeleteSVG} from "./icons/trash-solid.svg";
+import {ReactComponent as DeleteSVG} from "./svgs/trash-solid.svg";
 
 const Announcement = () => {
     // get Announcements at start
@@ -112,7 +112,7 @@ const Announcement = () => {
     return (
         <div className={"announcement-main"}>
             <div >
-                <div><h3>Add Announcement</h3></div>
+                <div>{(profileData.level === 2) ? <div><h3>Add Announcement</h3></div> : <></>}</div>
                 <div>{(profileData.level === 2) ? <AddAnnouncement onSubmit={submitNewAnnouncement}/> : <></>}</div>
             </div>
             <div >

@@ -1,25 +1,48 @@
 /*
 REPLACE BACKGROUND COLOUR AFTERWARDS
 */
+.app-header {
+    position: absolute;
+    margin: 0px auto 12px;
+    padding-top: 8px;
+    padding-bottom: 3px;
+    font-size: 34px;
+    text-align: center;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(0,0,0,0.15);
+    border-radius: 0px 0px 5px 5px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+    width: 100%;
+}
 
-.dashboard-container{
-    background : transparent;
+
+.no-app-header {
+    display: none;
+}
+
+.dashboard-container {
     font-weight: lighter;
     height: 100%;
     margin: 0;
     display: flex;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background: transparent no-repeat fixed;
 }
 
-.main-content{
-    height: calc(100% - 70px);
-    margin-top: 70px;
+.main-content {
+    height: calc(100% - 65px);
+    margin-top: 65px;
     padding-left: 3%;
     padding-right: 3%;
     width: 100%;
     overflow-y: auto;
 }
+
+.hide {
+    filter: blur(4px);
+    pointer-events: none;
+}
+
 @media screen and (min-width: 750px) {
     .main-content {
         height: calc(100% - 70px);
@@ -28,12 +51,15 @@ REPLACE BACKGROUND COLOUR AFTERWARDS
 
 }
 
+.nav-pane-wrapper{
+    height: 100%;
+}
 .nav-toggle {
     cursor: pointer;
     position: absolute;
     z-index: 1000;
     top: 0;
-    margin: 20px;
+    margin: 6px;
     padding: 0px;
     height: 50px;
     width: 50px;
@@ -41,16 +67,20 @@ REPLACE BACKGROUND COLOUR AFTERWARDS
     color: rgba(0, 0, 0, .5);
     font-weight: bold;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, .8);
+    background-color: transparent;
     transform: rotate(0deg);
     transition: all .2s ease-in;
     border: 0 none;
 }
 
+.nav-toggle svg {
+    fill: rgba(234, 230, 230, 0.56);
+}
+
 .nav-toggle:hover {
     cursor: pointer;
     transform: scale(1.1) rotate(0deg);
-    -webkit-box-shadow: 10px 2px 8px -8px rgba(179, 164, 139, .6);
+    -webkit-box-shadow: 10px 2px 8px -8px rgba(219, 211, 197, 0.15);
 }
 
 .nav-toggle:focus {
@@ -60,11 +90,10 @@ REPLACE BACKGROUND COLOUR AFTERWARDS
 
 .close {
     cursor: pointer;
-    transform: rotate(45deg);
-    background-color: rgba(109, 163, 140, 1);
-    -webkit-box-shadow: 10px 2px 8px -8px rgba(179, 164, 139, .6);
+    transform: rotate(180deg);
+    background-color: transparent;
 }
 
 .close:hover {
-    transform: scale(1.1) rotate(45deg);
+    transform: scale(1.1) rotate(180deg);
 }

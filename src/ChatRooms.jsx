@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {ReactComponent as DeleteSVG} from "./icons/trash-solid.svg";
+import {ReactComponent as DeleteSVG} from "./svgs/trash-solid.svg";
 
 
 // props contain chat room names and state handler for rooms

@@ -11,12 +11,13 @@ import LazyLoader from "./LazyLoader";
 import NoUrlMatch from "./NoUrlMatch";
 import {useProfile} from "./ProfileContext";
 import React from "react";
+import {useTheme} from "./ThemeContext";
 
 function App() {
-    let {profileData} = useProfile();
-
+    const {profileData} = useProfile();
+    const {themeData} = useTheme();
     return (
-        <div className={"route-container"}>
+        <div className={`route-container ${"theme-"+themeData}`}>
             <Router>
                 <Switch>
                     <Route exact path="/">

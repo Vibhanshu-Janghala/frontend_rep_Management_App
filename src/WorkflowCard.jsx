@@ -29,20 +29,20 @@ const WorkflowCard = (props) => {
                          data-parent={cardList.listName}
                          index-card-custom={index}
                          onClick={(e) => handleClick(e, false)}>{item.title}</div>
-                    <div>{"Managed By: " + item.managedBy}</div>
-                    <div>{"Priority: " + item.priority}</div>
+                    <div><span>Managed By:  </span><div> {item.managedBy}</div></div>
+                    <div><span>Priority:  </span><div> {item.priority}</div></div>
                 </div>
             );
         });
 
     return (
-        <div >
+        <div className={"list-container"} >
             {(profileData.level === 1 || profileData.level === 2) ?
                 <button type="button"
                         id={null}
                         data-parent={cardList.listName}
                         onClick={(e) => handleClick(e, true)}>
-                    Add card
+                    Add Card
                 </button> : null}
             {cards}
 

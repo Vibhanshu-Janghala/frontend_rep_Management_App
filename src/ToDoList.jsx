@@ -1,7 +1,7 @@
 import {useProfile} from "./ProfileContext";
 import AddToDoItem from "./AddToDoItem";
 import "./ToDoList.css";
-import {ReactComponent as DeleteSVG} from "./icons/trash-solid.svg";
+import {ReactComponent as DeleteSVG} from "./svgs/trash-solid.svg";
 //array need not be sorted here
 const ToDoList = () => {
     let {profileData, setProfileData} = useProfile();

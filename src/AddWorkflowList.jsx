@@ -25,7 +25,7 @@ const AddWorkflowList = (props) => {
                        onChange={handleChange}/>
                 <button type="submit"
                         value="Submit">
-                    Add
+                    Add List
                 </button>
             </form>
 

@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import {ReactComponent as SendSVG} from "./icons/send_black_36dp.svg";
+import {ReactComponent as SendSVG} from "./svgs/send_black_36dp.svg";
 
 const MessageInput = (props)=>{
    const [message,setMessage]= useState("");

@@ -1,12 +1,19 @@
 .nav-pane-title{
     margin-top: 20px;
-    padding:auto;
 }
-.navpane-welcome{
+div.navpane-welcome , div.navpane-contact-me{
     padding: 100px 50px 20px;
+    font-weight: 400;
+    font-size: 20px;
 }
-.navpane-welcome h2{
-
+.navpane-welcome h2, div.navpane-contact-me > a{
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
+    font-weight: 500;
+    font-size: 26px;
+    color: rgb(85, 84, 84);
+    margin-top: 8px;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 .nav-menu {
     z-index:200;
@@ -14,7 +21,6 @@
     width: 250px;
     background-color: rgba(255, 255, 255, .5);
     margin-left: -450px;
-    margin-top: -10px;
     opacity: 0;
     -webkit-box-shadow: 10px 10px 6px -8px rgba(161, 136, 119, .7);
     transition: all .3s ease-in-out;
@@ -22,6 +28,7 @@
     padding: 0 ;
     border-right: 1px solid rgba(0, 0, 0, .2);
     border-bottom: 1px solid rgba(0, 0, 0, .2);
+    overflow-y: auto;
 }
 .nav-closed {
     margin-left: 0px;
@@ -36,6 +43,10 @@
     transition: all .7s ease-out;
     transition-delay: .3s;
     letter-spacing: 2px;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #dbdbd8;
 }
 
 .nav-links-close {
@@ -52,11 +63,11 @@
 
 .link-list li {
     list-style-type: none;
-    margin: 0;
-    margin-bottom: 30px;
+    margin: 0 0 30px;
     border-bottom: 2px solid rgba(0, 0, 0, .5);
     padding: 3px;
 }
+
 
 .link-list .nav-link {
     text-decoration: none;
@@ -67,4 +78,15 @@
 .link-list .nav-link:hover {
     cursor:pointer;
     color: rgba(0, 0, 0, .3);
+}
+div.navpane-contact-me{
+    text-align: center;
+    padding-bottom: 30px;
+}
+div.navpane-contact-me > a{
+    text-decoration: none;
+    font-size: 18px;
+}
+div.navpane-contact-me  >a:hover{
+    color: rgb(12, 11, 11);
 }

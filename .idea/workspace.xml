@@ -1,45 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="31c9caee-dbc0-4f66-95fb-977bd66fc9ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Announcement.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Chat.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Dashboard.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ErrorDisplay.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NavPane.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ToDoList.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UsersOnline.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Workflow.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/icons/send_black_36dp.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/icons/trash-solid.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/my-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/my-app.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/AppHeader.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Home.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Home.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Loading.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Loading.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NoUrlMatch.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ThemeContext.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/pexels-ekrulila-2305760.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/pexels-fauxels-3184460 (1).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/svgs/add_black_24dp.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/svgs/cancel_black_24dp.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/svgs/close_black_36dp.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/svgs/delete_black_24dp.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/svgs/edit_black_24dp.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/svgs/homepage-welcome.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/svgs/menu_black_48dp.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/svgs/page_not_found_su7k.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/svgs/save_black_24dp.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AddAnnouncement.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddAnnouncement.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AddToDoItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddToDoItem.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AddWorkflowList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddWorkflowList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Announcement.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Announcement.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Announcement.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Announcement.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Chat.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chat.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CardCheckbox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/CardCheckbox.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Chat.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chat.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ChatRooms.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatRooms.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ChatWindow.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatWindow.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dashboard.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Dashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dashboard.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DisplayActiveCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DisplayActiveCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InputField.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/InputField.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LazyLoader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/LazyLoader.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MessageInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/MessageInput.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NavPane.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/NavPane.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NavPane.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/NavPane.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SignUp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/SignUp.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SocketContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/SocketContext.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NoUrlMatch.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/NoUrlMatch.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ToDoList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/ToDoList.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ToDoList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ToDoList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UsersOnline.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/UsersOnline.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Workflow.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Workflow.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UsersOnline.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/UsersOnline.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Workflow.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Workflow.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/WorkflowCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/WorkflowCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/icons/send_black_36dp.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/svgs/send_black_36dp.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/icons/trash-solid.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/svgs/trash-solid.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,12 +67,19 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="2" />
+  </component>
   <component name="ProjectId" id="1tRpGCZrUILDsaKZx44S1guIizA" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -129,7 +146,12 @@
       <workItem from="1624717251332" duration="7353000" />
       <workItem from="1624775051992" duration="4536000" />
       <workItem from="1624792142800" duration="14823000" />
-      <workItem from="1624853726788" duration="5613000" />
+      <workItem from="1624853726788" duration="20338000" />
+      <workItem from="1624880368510" duration="9757000" />
+      <workItem from="1624943845285" duration="24274000" />
+      <workItem from="1625031358812" duration="6377000" />
+      <workItem from="1625040314798" duration="8659000" />
+      <workItem from="1625079830051" duration="3953000" />
     </task>
     <servers />
   </component>
@@ -147,6 +169,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

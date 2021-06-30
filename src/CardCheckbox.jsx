@@ -1,4 +1,6 @@
 import {useState} from "react";
+import {ReactComponent as DeleteSVG} from "./svgs/delete_black_24dp.svg";
+import {ReactComponent as AddSVG} from "./svgs/add_black_24dp.svg";
 
 //tempList format =>[ {"content":content,"isChecked":true/false} ]
 const CardCheckbox = (props) => {
@@ -19,8 +21,8 @@ const CardCheckbox = (props) => {
         }
     }
     const handleCheckListDelete = (e) => {
-        const itemName = e.target.getAttribute("data-name");
-        let index = e.target.getAttribute("index-custom");
+        const itemName = e.target.parentNode.getAttribute("data-name");
+        let index = e.target.parentNode.getAttribute("index-custom");
         if (tempList[index].content === itemName) {
             let cloneArr = [...tempList];
             cloneArr.splice(index, 1);
@@ -29,7 +31,7 @@ const CardCheckbox = (props) => {
     }
     const renderList = tempList.map((item, index) => {
         return (
-            <div key={item.content}>
+            <div key={item.content} className={"checkbox-item"}>
                 <input type="checkbox"
                        name={item.content}
                        index-custom={index}
@@ -39,15 +41,15 @@ const CardCheckbox = (props) => {
                            checkListHandler(e)
                        }}
                 />
-                <label htmlFor={(item.content)}
-                >
+                <span>
                     {item.content}
-                </label>
+                </span>
                 {props.edit ? <button type="button" index-custom={index} data-name={item.content}
+                                      className={"delete-button"}
                                       onClick={(e) => {
                                           handleCheckListDelete(e)
                                       }}>
-                    Delete Icon</button> : null}
+                    <DeleteSVG/></button> : null}
             </div>)
     });
     const [tempItem, setTempItem] = useState("")
@@ -60,14 +62,18 @@ const CardCheckbox = (props) => {
     }
 
     return (
-        <div>
-            {renderList}
+        <div className={"card-checkbox"}>
+            <h2>Progress List :</h2>
+            <div className={"checkbox-items-list"}>{renderList}</div>
             {props.edit ?
                 <div>
-                    <input name="addCheckItem" onChange={handleAddItem} value={tempItem}/>
-                    <button type="button"
+                    <textarea name="addCheckItem" className={"checkbox-input"} onChange={handleAddItem}
+                              value={tempItem}>
+                        {tempItem}
+                    </textarea>
+                    <button type="button" className={"add-button"}
                             onClick={(e) => handleAddSubmit(e)}>
-                        Add Icon
+                        <AddSVG />
                     </button>
                 </div>
                 : null}

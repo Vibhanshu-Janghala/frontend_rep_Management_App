@@ -1,6 +1,12 @@
 import CardCheckbox from "./CardCheckbox";
 import { useState} from "react";
 import {useProfile} from "./ProfileContext";
+import {ReactComponent as CloseSVG} from "./svgs/close_black_36dp.svg";
+import {ReactComponent as EditSVG} from "./svgs/edit_black_24dp.svg";
+import {ReactComponent as DeleteSVG} from "./svgs/delete_black_24dp.svg";
+import {ReactComponent as CancelSVG} from "./svgs/cancel_black_24dp.svg";
+import {ReactComponent as SaveSVG} from "./svgs/save_black_24dp.svg";
+
 
 
 // props contain listName,newCard,cardTitle, card and Updater function
@@ -33,23 +39,64 @@ const DisplayActiveCard = (props) => {
     // ADD ROWS AND COLUMN TO TEXTAREA LATER
     return (
             <div className={"active-card"}>
-                <input
+                <textarea
+                    className={"card-title"}
                     name="title"
                     value={cardInput.title}
-                    type="text"
                     disabled={!(editMode||newCard)}
-                    onChange={handleInput}
-                />
+                    onChange={handleInput}>
+                    {cardInput.title}
+                </textarea>
 
-                <button type="button" onClick={handleCloseCard}>
-                    Close Card
+
+                <button type="button" className={"close-button"} onClick={handleCloseCard}>
+                   <CloseSVG/>
                 </button>
 
-                <div> {props.listName} </div>
+                <span className={"parent-list"}>in list <span>{props.listName}</span> </span>
+                <div>
+                    {(profileData.level === 2 || profileData.level === 1) ?
+                        (editMode||newCard) ? <div>
+                                <button name="save-card"
+                                        type="button"
+                                        onClick={handleSubmit}
+                                        className={"save-button"}
+                                >
+                                    <SaveSVG /><span>Save</span>
+                                </button>
+                                <button name="cancel-card"
+                                        type="button"
+                                        onClick={ handleCancelButton }
+                                        className={"cancel-button"}
+                                >
+                                    <CancelSVG/><span>Cancel</span>
+                                </button>
+                            </div>
+                            :
+                            <div>
+                                <button name="edit-card"
+                                        type="button"
+                                        onClick={ handleEditToggle }
+                                        className={"edit-button"}
+                                >
+                                    <EditSVG /><span>Edit</span>
+                                </button>
+                                <button name="delete-card"
+                                        type="button"
+                                        onClick={ handleDeleteButton }
+                                        className={"delete-button"}
+                                >
+                                    <DeleteSVG /><span>Delete</span>
+                                </button>
+                            </div> : null
+                    }
+                </div>
+
 
                 <div>
                     <label htmlFor="givenDescription"> Description </label>
                     <textarea name="givenDescription"
+                              className={"card-description"}
                               id={"givenDescription"}
                               disabled={!(editMode||newCard)}
                               value={cardInput.givenDescription}
@@ -61,49 +108,20 @@ const DisplayActiveCard = (props) => {
                               onChange={handleInput}
                               checkList={cardInput.progressList}
                 />
-                <div>
-                    {(profileData.level === 2 || profileData.level === 1) ?
-                        (editMode||newCard) ? <div>
-                                <button name="save-card"
-                                        type="button"
-                                        onClick={handleSubmit}>
-                                    Save
-                                </button>
-                                <button name="cancel-card"
-                                        type="button"
-                                        onClick={ handleCancelButton }>
-                                    Cancel
-                                </button>
-                            </div>
-                            :
-                            <div>
-                                <button name="edit-card"
-                                        type="button"
-                                        onClick={ handleEditToggle } >
-                                    Edit
-                                </button>
-                                <button name="delete-card"
-                                        type="button"
-                                        onClick={ handleDeleteButton } >
-                                    Delete
-                                </button>
-                            </div> : null
-                    }
-                </div>
+
                 <label htmlFor="managedBy">Managed by :</label>
                 <input name="managedBy"
                        value={cardInput.managedBy}
                        onChange={handleInput}
                        disabled={!(editMode||newCard)}
-                       type="text"
                 />
-                <label htmlFor="priority">Task Priority</label>
+                <label htmlFor="priority">Task Priority :</label>
                 <input name="priority"
                        value={cardInput.priority}
                        onChange={handleInput}
                        disabled={!(editMode||newCard)}
-                       type="text"
                 />
+                <label htmlFor="dueDate">Due Date</label>
                 <input type="date"
                        name="dueDate"
                        value={cardInput.dueDate}

@@ -3,6 +3,7 @@ import {
     useHistory
 } from 'react-router-dom';
 import {useProfile} from "./ProfileContext";
+import Loading from "./Loading";
 
 const LazyLoader = () => {
 
@@ -41,10 +42,13 @@ const LazyLoader = () => {
                 history.push("/login");
             }
         }
-
+    const loadingStyle = {
+        "height":"100%",
+        "width":"100%"
+    }
     return (
-        <div>
-            Loading...
+        <div style={loadingStyle}>
+            <Loading />
         </div>
     );
 }

@@ -1,6 +1,9 @@
 .workflow-list-main {
     height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
 }
+
+/*  Workflow List */
 
 .workflow-list {
     height: 100%;
@@ -12,49 +15,47 @@
     overflow-y: hidden;
 }
 
-.workflow-list::-webkit-scrollbar {
-    width: 8px;
-    height: 10px;
-}
-
-.workflow-list::-webkit-scrollbar-button {
-    width: 0px;
-}
-
-.workflow-list::-webkit-scrollbar-track-piece {
-    background-color: #000;
-    border-radius: 3px;
-}
-
-.workflow-list::-webkit-scrollbar-thumb {
-    height: 50px;
-    background-color: #666;
-    border-radius: 3px;
-}
-
-.workflow-list::-webkit-scrollbar-corner {
-    background-color: #646464;
-}
-
-
 .workflow-list-item, .workflow-list-form {
-    margin-top: 5px;
     padding: 10px 10px 20px;
     height: 99%;
     min-width: 300px;
     box-sizing: border-box;
-    box-shadow: 5px 0  10px rgba(0, 0, 0, .6);
+    box-shadow: 5px 0 10px rgba(0, 0, 0, .6);
     border-radius: 10px;
-    margin-right: 20px;
-    margin-bottom: 15px;
-    margin-left: 12.5px;
+    margin: 5px 20px 15px 13px;
+    overflow-y: auto;
 }
-.workflow-list-item  > h2{
+
+.workflow-list-item > h2 {
+    margin-top: 10px;
+    margin-left: 5px;
     word-wrap: break-word;
     cursor: default;
+    color: #ebecf0;
 }
+
 .workflow-list-item > button {
     float: right;
+}
+
+.workflow-list-item > button, .workflow-list-form > form > button, .list-container > button {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
+    font-weight: 500;
+    border-radius: 10px;
+    border: transparent;
+    padding: 4px 4px;
+    font-size: 14px;
+    background-color: #ebecf0;
+}
+
+.workflow-list-item > button:hover {
+    background-color: #db1f29;
+    color: #fff;
+}
+
+.list-container > button:hover, .workflow-list-form > form > button:hover {
+    background-color: #0cc438;
+    color: #fff;
 }
 
 .workflow-list-form input {
@@ -62,28 +63,237 @@
     padding: 10px 0;
     font-size: 16px;
     color: #fff;
-    margin-bottom: 30px;
+    margin-top: 5px;
+    margin-bottom: 20px;
     border: none;
     border-bottom: 1px solid #fff;
     outline: none;
     background: transparent;
 }
-.card-container{
+
+.workflow-list-form input::placeholder {
+    color: #c2c1bb
+}
+
+.card-container {
+    background-color: #ebecf0;
+    box-sizing: border-box;
+    border-radius: 10px;
     padding: 10px 10px 20px;
     height: 99%;
     min-width: 275px;
-    box-sizing: border-box;
     box-shadow: 0 5px 15px rgba(0, 0, 0, .6);
-    border-radius: 10px;
     margin-right: 20px;
     margin-bottom: 10px;
     margin-top: 30px;
 }
-.card-container div{
+
+.card-container div {
     cursor: default;
+    font-weight: 400;
+    font-size: 14px;
+    max-width: 100%;
+    word-wrap: break-word;
+    margin-bottom: 5px;
 }
-.clickable-div {
+
+.card-container div span {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.card-container .clickable-div {
+    font-size: 20px;
+    font-weight: 600;
     cursor: pointer;
-    padding-bottom: 15px;
-    font-style: italic;
+    padding-bottom: 10px;
 }
+
+/* ACTIVE CARD */
+.active-card {
+    position: absolute;
+    height: calc(100% - 90px);
+    width: 95%;
+    background : rgba(195, 196, 195, 0.98);
+    overflow-y: auto;
+    z-index: 200;
+    box-sizing: content-box;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, .6);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.active-card > textarea,.active-card .card-description {
+    width: 85%;
+    margin: 10px 5px 10px 10px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    padding: 1% 0;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+    resize: none;
+    overflow-y: auto;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+}
+.active-card span.parent-list{
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 10px 5px 10px 10px;
+}
+.active-card span span{
+    display: inline;
+    font-size: 18px;
+    font-weight: 600;
+    font-style: italic;
+    margin-left: 0px;
+}
+
+.active-card input {
+    width: 85%;
+    margin: 10px 5px 10px 10px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.active-card label {
+    display: block;
+    margin: 20px 5px 5px;
+    font-size: 18px;
+    font-weight: 600;
+}
+.active-card .card-description{
+    min-height: 96px;
+}
+@media screen and (min-width: 750px){
+    .active-card>*{
+        padding-left: 2%;
+    }
+    .active-card textarea.card-title{
+        margin-left: 2%;
+    }
+    .active-card>input{
+        width:15%;
+        margin-left: 3%;
+    }
+
+}
+
+/*  Card Buttons */
+.close-button {
+    float: right;
+    padding: 1px 1px;
+    border: 0px;
+    margin: 0.5% 0.5%;
+    background-color: transparent;
+}
+
+.close-button svg:hover {
+    fill: #fd2430
+}
+
+.edit-button, .cancel-button, .save-button, .delete-button {
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin: 5px 5%;
+    font-size: 18px;
+    padding: 2px 10px;
+    color:#fff;
+    background-color: #767079;
+    outline: none;
+    border: 0px;
+}
+@media screen and (min-width: 750px) {
+    .edit-button, .cancel-button, .save-button, .delete-button{
+        margin: 5px 0.5%;
+    }
+}
+.edit-button svg, .cancel-button svg, .save-button svg, .delete-button svg{
+    vertical-align: bottom;
+    margin-right: 3px;
+    fill:#fff;
+}
+
+/* Checkbox List */
+.card-checkbox{
+    margin-bottom: 30px;
+}
+.card-checkbox>h2{
+    margin: 5px 5px 0px;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+}
+.checkbox-items-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-item {
+    margin: 3px;
+}
+
+.checkbox-item input {
+    float: left;
+    width: 5%;
+}
+
+.checkbox-item span {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    width: 70%;
+    display: inline-block;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+.checkbox-input{
+    vertical-align: middle;
+    width: 85%;
+    margin: 10px 5px 10px 10px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    padding: 1% 0;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+    resize: none;
+    overflow-y: auto;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+}
+.add-button{
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin: 5px 5px;
+    font-size: 18px;
+    padding: 2px 10px;
+    color:#fff;
+    background-color: #767079;
+    border: 0px;
+    outline: none;
+}
+.add-button svg{
+    margin-right: 3px;
+    fill:#fff;
+}
+
+@media screen and (min-width: 750px) {
+    .checkbox-item input{
+        width: 3%;
+    }
+}
+
+

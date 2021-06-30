@@ -4,14 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {ProfileProvider} from "./ProfileContext";
-
+import {ThemeProvider} from "./ThemeContext";
 ReactDOM.render(
-  <>
-      <ProfileProvider>
-            <App />
-      </ProfileProvider>
-  </>,
-  document.getElementById('root')
+    <>
+        <ThemeProvider>
+            <ProfileProvider>
+                <App/>
+            </ProfileProvider>
+        </ThemeProvider>
+    </>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

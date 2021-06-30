@@ -28,7 +28,7 @@ const AddAnnouncement = (props) => {
                      </textarea>
 
                 <button type="submit">
-                    Post
+                    Add Announcement
                 </button>
             </form>
         </div>
