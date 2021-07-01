@@ -22,6 +22,7 @@ const AddWorkflowList = (props) => {
                        type="text"
                        placeholder="Title"
                        value={newList}
+                       autoComplete={"off"}
                        onChange={handleChange}/>
                 <button type="submit"
                         value="Submit">

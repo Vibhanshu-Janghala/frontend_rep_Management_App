@@ -27,7 +27,7 @@ const SignUp = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        let response = await fetch("http://localhost:8080/api/createAccount", {
+        let response = await fetch("/api/createAccount", {
             method: "POST",
             headers: {
                 'Accept': 'application/json',
@@ -37,7 +37,6 @@ const SignUp = () => {
             body: JSON.stringify(data),
             cache: 'no-cache',
             referrerPolicy: 'no-referrer',
-            mode: "cors"
         });
 
         if (response.status === 200) {
@@ -77,6 +76,7 @@ const SignUp = () => {
                 <div className={"radio-button"}>
                     <label>
                         <input
+                            autoComplete={"off"}
                             name="level"
                             type="radio"
                             value="Least Access"
@@ -89,6 +89,7 @@ const SignUp = () => {
                 <div className={"radio-button"}>
                     <label>
                         <input
+                            autoComplete={"off"}
                             name="level"
                             type="radio"
                             value="Medium Access"
@@ -101,6 +102,7 @@ const SignUp = () => {
                 <div className={"radio-button"}>
                     <label>
                         <input
+                            autoComplete={"off"}
                             name="level"
                             type="radio"
                             value="All access"

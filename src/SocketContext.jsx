@@ -15,7 +15,7 @@ export function SocketProvider({children}) {
     const {profileData} = useProfile();
     let socket;
     const socketInitializer = () => {
-        return io("localhost:8080/", {
+        return io("/", {
             "path": "/socket.io",
             "upgrade": false,
             "transports": ["websocket"],
@@ -31,7 +31,6 @@ export function SocketProvider({children}) {
     if(profileData.name!= null){
         socket = socketInitializer();
     }
-    socket.on("connect", () => {})
 
     return (
         <SocketContext.Provider value={socket}>

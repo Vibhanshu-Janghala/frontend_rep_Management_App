@@ -16,6 +16,7 @@ const MessageInput = (props)=>{
     return(
         <form onSubmit={(e)=>handleSubmit(e)} className={"message-input"}>
             <input
+                autoComplete={"off"}
                 name="message"
                 placeholder="Message..."
                 value={message}

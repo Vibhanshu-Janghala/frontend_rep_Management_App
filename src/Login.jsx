@@ -28,7 +28,7 @@ const LoginPage = () => {
     const handleSubmit = async (e) => {
 
         e.preventDefault();
-        let response = await fetch("http://localhost:8080/api/login", {
+        let response = await fetch("api/login", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -37,7 +37,6 @@ const LoginPage = () => {
             body: JSON.stringify(data),
             cache: 'no-cache',
             referrerPolicy: 'no-referrer',
-            mode: "cors"
         });
 
         //if login successful

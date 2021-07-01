@@ -111,6 +111,7 @@ const DisplayActiveCard = (props) => {
 
                 <label htmlFor="managedBy">Managed by :</label>
                 <input name="managedBy"
+                       autoComplete={"off"}
                        value={cardInput.managedBy}
                        onChange={handleInput}
                        disabled={!(editMode||newCard)}
@@ -118,6 +119,7 @@ const DisplayActiveCard = (props) => {
                 <label htmlFor="priority">Task Priority :</label>
                 <input name="priority"
                        value={cardInput.priority}
+                       autoComplete={"off"}
                        onChange={handleInput}
                        disabled={!(editMode||newCard)}
                 />

@@ -21,6 +21,7 @@ const AddAnnouncement = (props) => {
                 <input name="title"
                             type="text"
                             placeholder="Title"
+                            autoComplete={"off"}
                             onChange={handleChange}/>
 
                     <textarea name="description"

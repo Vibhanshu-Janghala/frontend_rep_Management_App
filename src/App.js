@@ -1,43 +1,48 @@
 import './App.css';
-import LoginPage from "./Login";
+import {Suspense, lazy} from "react";
 import {
     BrowserRouter as Router, Redirect,
     Route,
     Switch
 } from 'react-router-dom';
-import Dashboard from "./Dashboard";
-import SignUp from "./SignUp";
-import LazyLoader from "./LazyLoader";
-import NoUrlMatch from "./NoUrlMatch";
 import {useProfile} from "./ProfileContext";
-import React from "react";
 import {useTheme} from "./ThemeContext";
+import Loading from "./Loading";
+
+const Dashboard = lazy(() => import("./Dashboard"));
+const SignUp = lazy(() => import('./SignUp'));
+const LazyLoader = lazy(() => import('./LazyLoader'));
+const NoUrlMatch = lazy(() => import('./NoUrlMatch'));
+const LoginPage = lazy(() => import('./Login'));
+
 
 function App() {
     const {profileData} = useProfile();
     const {themeData} = useTheme();
     return (
-        <div className={`route-container ${"theme-"+themeData}`}>
+        <div className={`route-container ${"theme-" + themeData}`}>
             <Router>
-                <Switch>
-                    <Route exact path="/">
-                        <LazyLoader />
-                    </Route>
-                    <Route exact path="/login">
-                        <LoginPage/>
-                    </Route>
-                    <Route exact path="/signup">
-                        <SignUp/>
-                    </Route>
-                    <Route path="/dashboard">
-                        {profileData.name!=null?
-                        <Dashboard />:
-                        <Redirect push to="/" />}
-                    </Route>
-                    <Route path="*">
-                        <NoUrlMatch />
-                    </Route>
-                </Switch>
+                <Suspense fallback={<Loading/>}>
+                    <Switch>
+                        <Route exact path="/">
+                            <LazyLoader/>
+                        </Route>
+                        <Route exact path="/login">
+                            <LoginPage/>
+                        </Route>
+                        <Route exact path="/signup">
+                            <SignUp/>
+                        </Route>
+                        <Route path="/dashboard">
+                            {profileData.name != null ?
+                                <Dashboard/> :
+                                <Redirect push to="/"/>}
+                        </Route>
+                        <Route path="*">
+                            <NoUrlMatch/>
+                        </Route>
+                    </Switch>
+                </Suspense>
             </Router>
         </div>
     );

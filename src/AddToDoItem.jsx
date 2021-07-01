@@ -20,10 +20,12 @@ const AddToDoItem = (props) => {
             <input name="title"
                    type="text"
                    placeholder="Title"
+                   autoComplete={"off"}
                    onChange={handleChange}/>
             <input name="content"
                    type="text"
                    placeholder="Description"
+                   autoComplete={"off"}
                    onChange={handleChange}/>
             <button type="submit" value="Submit">
                 Add

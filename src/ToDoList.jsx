@@ -12,7 +12,7 @@ const ToDoList = () => {
         let index = e.target.parentNode.parentNode.getAttribute("index-custom");
         let title = e.target.parentNode.parentNode.getAttribute("title-custom");
         if (toDoList[index].title === title) {
-            let response = await fetch("http://localhost:8080/api/todoList/delete",
+            let response = await fetch("/api/todoList/delete",
                 {
                     method: "POST",
                     headers: {
@@ -60,7 +60,7 @@ const ToDoList = () => {
 
         // Submit for Add Item
         async function handleSubmit(newToDo) {
-            let response = await fetch("http://localhost:8080/api/todoList/add",
+            let response = await fetch("/api/todoList/add",
                 {
                     method: "POST",
                     headers: {

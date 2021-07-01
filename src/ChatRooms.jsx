@@ -59,6 +59,7 @@ const ChatRooms = (props) => {
                         <form hidden={!addRoom} onSubmit={(e) => handleSubmit(e)}
                               className={"form-no-hover"}>
                             <input
+                                autoComplete={"off"}
                                 name="room"
                                 placeholder="Enter Room Name"
                                 value={newRoom}

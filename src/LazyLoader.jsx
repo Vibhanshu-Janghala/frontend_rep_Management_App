@@ -22,7 +22,7 @@ const LazyLoader = () => {
     }, [profileData]);
 
      async function fetchProfileData() {
-            let response = await fetch("http://localhost:8080/api/lazyLogin",
+            let response = await fetch("/api/lazyLogin",
                 {
                     method: "GET",
                     headers: {
@@ -32,13 +32,12 @@ const LazyLoader = () => {
                     credentials: "include",
                     cache: 'no-cache',
                     referrerPolicy: 'no-referrer',
-                    mode: "cors"
                 });
             if(response.status === 200){
             let jsResponse = await response.json();
             setProfileData(() => jsResponse);
             }
-            else if(response.status !== 401){
+            else if(response.status !== 200){
                 history.push("/login");
             }
         }

@@ -16,7 +16,7 @@ const NavPane = (props) => {
     }, [profileData]);
     const handleClick = async () => {
         socket.disconnect();
-        let response = await fetch("http://localhost:8080/api/logOut", {
+        let response = await fetch("/api/logOut", {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
@@ -25,7 +25,6 @@ const NavPane = (props) => {
             credentials: "include",
             cache: 'no-cache',
             referrerPolicy: 'no-referrer',
-            mode: "cors"
         });
         if (response.status === 200) {
             setProfileData(() => {

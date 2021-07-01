@@ -5,11 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {ProfileProvider} from "./ProfileContext";
 import {ThemeProvider} from "./ThemeContext";
+import {SocketProvider} from "./SocketContext";
+
 ReactDOM.render(
     <>
         <ThemeProvider>
             <ProfileProvider>
+                <SocketProvider>
                 <App/>
+                </SocketProvider>
             </ProfileProvider>
         </ThemeProvider>
     </>,

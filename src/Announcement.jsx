@@ -13,7 +13,7 @@ const Announcement = () => {
     }, []);
 
     async function fetchAnnouncement() {
-        let response = await fetch("http://localhost:8080/api/announcement",
+        let response = await fetch("/api/announcement",
             {
                 method: "GET",
                 headers: {
@@ -23,13 +23,11 @@ const Announcement = () => {
                 },
                 credentials: "include",
                 cache: 'no-cache',
-                referrerPolicy: 'no-referrer',
-                mode: "cors",
-
+                referrerPolicy: 'no-referrer'
             });
         if (response.status === 200) {
             const jsResponse = await response.json();
-            setAnnouncements(jsResponse);
+            setAnnouncements(()=>jsResponse);
         } else {
             console.log("Error while fetching announcement")
         }
@@ -41,7 +39,7 @@ const Announcement = () => {
         let index = e.target.parentNode.parentNode.getAttribute("index-custom");
         let title = e.target.parentNode.parentNode.getAttribute("title-custom");
         if (announcements[index].title === title) {
-            let response = await fetch("http://localhost:8080/api/announcement/delete",
+            let response = await fetch("/api/announcement/delete",
                 {
                     method: "DELETE",
                     headers: {
@@ -52,7 +50,6 @@ const Announcement = () => {
                     credentials: "include",
                     cache: 'no-cache',
                     referrerPolicy: 'no-referrer',
-                    mode: "cors",
                     body: JSON.stringify({"title": title})
                 });
             if (response.status === 200) {
@@ -85,7 +82,7 @@ const Announcement = () => {
 
     // Handle addition of new Announcements
     async function submitNewAnnouncement(newAnnounce) {
-        let response = await fetch("http://localhost:8080/api/announcement/add",
+        let response = await fetch("/api/announcement/add",
             {
                 method: "POST",
                 headers: {
@@ -96,7 +93,6 @@ const Announcement = () => {
                 credentials: "include",
                 cache: 'no-cache',
                 referrerPolicy: 'no-referrer',
-                mode: "cors",
                 body: JSON.stringify(newAnnounce)
             });
         if (response.status === 200) {

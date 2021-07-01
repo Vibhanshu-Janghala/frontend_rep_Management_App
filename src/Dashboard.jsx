@@ -4,7 +4,6 @@ import ToDoList from "./ToDoList";
 import Workflow from "./Workflow";
 import Chat from "./Chat";
 import {Route, Switch, useLocation} from 'react-router-dom';
-import {SocketProvider} from "./SocketContext";
 import UsersOnline from "./UsersOnline";
 import React, {useState} from "react";
 import "./Dashboard.css";
@@ -25,7 +24,6 @@ const Dashboard = () => {
     }
 
     return (
-        <SocketProvider>
             <div className={"dashboard-container"}>
                 <div className={activeBar ? "app-header" : "no-app-header app-header"}>
                     <AppHeader headerUrl={headerUrl}/>
@@ -60,7 +58,6 @@ const Dashboard = () => {
                     </Switch>
                 </div>
             </div>
-        </SocketProvider>
     );
 }
 export default Dashboard;

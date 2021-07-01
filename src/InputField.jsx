@@ -14,6 +14,7 @@ const InputField = (props) => {
                 {props.label}
             </label >
             < input
+                autoComplete={"off"}
                 readOnly= {props.readOnly?props.readOnly:false}
                 name = {props.name ? props.name :null}
                 type = {props.type ? props.type : "text"}

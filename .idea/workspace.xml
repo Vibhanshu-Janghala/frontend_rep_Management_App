@@ -5,50 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="31c9caee-dbc0-4f66-95fb-977bd66fc9ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/AppHeader.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Home.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Home.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Loading.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Loading.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NoUrlMatch.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ThemeContext.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/pexels-ekrulila-2305760.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/pexels-fauxels-3184460 (1).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svgs/add_black_24dp.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svgs/cancel_black_24dp.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svgs/close_black_36dp.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svgs/delete_black_24dp.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svgs/edit_black_24dp.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svgs/homepage-welcome.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svgs/menu_black_48dp.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svgs/page_not_found_su7k.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/svgs/save_black_24dp.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AddAnnouncement.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddAnnouncement.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AddToDoItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddToDoItem.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AddWorkflowList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddWorkflowList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Announcement.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Announcement.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Announcement.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Announcement.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CardCheckbox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/CardCheckbox.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Chat.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chat.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ChatRooms.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatRooms.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dashboard.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Dashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dashboard.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DisplayActiveCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DisplayActiveCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ErrorDisplay.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ErrorDisplay.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InputField.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/InputField.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LazyLoader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/LazyLoader.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MessageInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/MessageInput.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NavPane.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/NavPane.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NavPane.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/NavPane.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NoUrlMatch.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/NoUrlMatch.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ToDoList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/ToDoList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SignUp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/SignUp.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SocketContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/SocketContext.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ToDoList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ToDoList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UsersOnline.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/UsersOnline.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Workflow.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Workflow.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WorkflowCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/WorkflowCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/icons/send_black_36dp.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/svgs/send_black_36dp.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/icons/trash-solid.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/svgs/trash-solid.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -152,6 +126,11 @@
       <workItem from="1625031358812" duration="6377000" />
       <workItem from="1625040314798" duration="8659000" />
       <workItem from="1625079830051" duration="3953000" />
+      <workItem from="1625121073081" duration="5108000" />
+      <workItem from="1625161039805" duration="612000" />
+      <workItem from="1625161812802" duration="576000" />
+      <workItem from="1625162434658" duration="4000" />
+      <workItem from="1625162658621" duration="41000" />
     </task>
     <servers />
   </component>
