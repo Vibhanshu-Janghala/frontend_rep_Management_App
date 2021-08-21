@@ -4,27 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31c9caee-dbc0-4f66-95fb-977bd66fc9ca" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AddAnnouncement.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddAnnouncement.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AddToDoItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddToDoItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AddWorkflowList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddWorkflowList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Announcement.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Announcement.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ChatRooms.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatRooms.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dashboard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DisplayActiveCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DisplayActiveCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ErrorDisplay.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ErrorDisplay.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InputField.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/InputField.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LazyLoader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/LazyLoader.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MessageInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/MessageInput.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NavPane.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/NavPane.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SignUp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/SignUp.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SocketContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/SocketContext.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ToDoList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ToDoList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-    </list>
+    <list default="true" id="31c9caee-dbc0-4f66-95fb-977bd66fc9ca" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -131,6 +111,7 @@
       <workItem from="1625161812802" duration="576000" />
       <workItem from="1625162434658" duration="4000" />
       <workItem from="1625162658621" duration="41000" />
+      <workItem from="1625378385562" duration="54000" />
     </task>
     <servers />
   </component>
